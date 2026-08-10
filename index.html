@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1f14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>RHS Installs</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand-row">
+      <button id="backBtn" class="icon-btn hidden" aria-label="Back">←</button>
+      <div>
+        <p class="eyebrow">Playbook</p>
+        <h1 id="title">RHS Installs</h1>
+      </div>
+      <span id="offlineBadge" class="badge" hidden>Offline</span>
+    </div>
+    <label class="search-wrap">
+      <span class="sr-only">Search plays</span>
+      <input
+        id="search"
+        type="search"
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+        placeholder="Search play — BLUE3, ORANGE22, BROWN26…"
+      />
+      <button id="clearSearch" class="clear-btn hidden" type="button" aria-label="Clear search">×</button>
+    </label>
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <dialog id="viewer" class="viewer">
+    <form method="dialog" class="viewer-bar">
+      <button value="close" class="icon-btn" aria-label="Close">←</button>
+      <div class="viewer-meta">
+        <p id="viewerPlay" class="viewer-play"></p>
+        <p id="viewerDay" class="viewer-day"></p>
+      </div>
+      <div class="viewer-nav">
+        <button type="button" id="prevPlay" class="icon-btn" aria-label="Previous play">‹</button>
+        <button type="button" id="nextPlay" class="icon-btn" aria-label="Next play">›</button>
+      </div>
+    </form>
+    <div class="viewer-body">
+      <img id="viewerImg" alt="Play diagram" />
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
