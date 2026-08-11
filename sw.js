@@ -1,4 +1,4 @@
-const CACHE = "rhs-installs-v1";
+const CACHE = "rhs-installs-v2";
 const PRECACHE = [
   "./",
   "./index.html",

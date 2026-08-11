@@ -245,14 +245,18 @@ h1 {
 }
 
 .icon-btn {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   border-radius: 12px;
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.06);
   color: var(--ink);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .icon-btn:disabled {
@@ -284,9 +288,11 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 12px;
-  background: rgba(11, 31, 20, 0.95);
+  padding: calc(10px + var(--safe-top)) 12px 10px;
+  background: rgba(11, 31, 20, 0.98);
   border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
 }
 
 .viewer-meta { flex: 1; min-width: 0; }
@@ -306,14 +312,15 @@ h1 {
 .viewer-nav { display: flex; gap: 6px; }
 
 .viewer-body {
-  height: calc(100% - 64px);
+  height: calc(100% - 68px - var(--safe-top));
   overflow: auto;
   background:
     linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px) 0 0 / 28px 28px,
     #f7f7f4;
   display: grid;
   place-items: center;
-  padding: 10px;
+  padding: 10px 10px calc(10px + var(--safe-bottom));
+  -webkit-overflow-scrolling: touch;
 }
 
 .viewer-body img {
@@ -326,9 +333,27 @@ h1 {
 @media (max-width: 640px) {
   .viewer {
     width: 100vw;
+    width: 100dvw;
     height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     border-radius: 0;
   }
+
+  .viewer-bar {
+    padding-top: calc(12px + var(--safe-top));
+    padding-bottom: 12px;
+    padding-left: max(12px, env(safe-area-inset-left, 0px));
+    padding-right: max(12px, env(safe-area-inset-right, 0px));
+  }
+
+  .icon-btn {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+  }
+
   .play-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
