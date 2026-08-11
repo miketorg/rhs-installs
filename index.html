@@ -37,6 +37,20 @@
 
   <main id="app" class="app"></main>
 
+  <div id="timerDock" class="timer-dock hidden" aria-live="polite">
+    <div class="timer-dock-main">
+      <p id="timerPeriod" class="timer-period">Period</p>
+      <p id="timerTitle" class="timer-title">Slot</p>
+    </div>
+    <div id="timerDisplay" class="timer-display">05:00</div>
+    <div class="timer-actions">
+      <button type="button" id="timerPause" class="timer-btn" aria-label="Pause or resume">Pause</button>
+      <button type="button" id="timerSkip" class="timer-btn" aria-label="Next slot">Next</button>
+      <button type="button" id="timerStop" class="timer-btn danger" aria-label="Stop timer">Stop</button>
+    </div>
+    <div class="timer-progress"><div id="timerBar" class="timer-bar"></div></div>
+  </div>
+
   <dialog id="viewer" class="viewer">
     <form method="dialog" class="viewer-bar">
       <button value="close" class="icon-btn" aria-label="Close">←</button>

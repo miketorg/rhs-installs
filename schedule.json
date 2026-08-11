@@ -1,0 +1,492 @@
+{
+  "title": "Week 1 Practice",
+  "pdf": "pdfs/week1-practice.pdf",
+  "days": [
+    {
+      "id": "mon",
+      "name": "Monday",
+      "date": "2026-08-10",
+      "practice": "#1",
+      "window": "7:45–9:45pm",
+      "gear": "No pads",
+      "focus": "Relentless · Go Tigers!",
+      "groups": ["QB/DB/WR", "LB/RB", "OL/DL"],
+      "slots": [
+        {
+          "id": "mon-1",
+          "start": "19:45",
+          "end": "20:00",
+          "minutes": 15,
+          "period": "Start Practice",
+          "title": "Warm Up Routine",
+          "groups": {}
+        },
+        {
+          "id": "mon-2",
+          "start": "20:00",
+          "end": "20:10",
+          "minutes": 10,
+          "period": "Indy",
+          "title": "CNS / GOAT",
+          "groups": {
+            "QB/DB/WR": "CNS",
+            "LB/RB": "GOAT"
+          }
+        },
+        {
+          "id": "mon-3",
+          "start": "20:10",
+          "end": "20:20",
+          "minutes": 10,
+          "period": "Sprint",
+          "title": "Three 40-yard dashes (groups of 5)",
+          "groups": {}
+        },
+        {
+          "id": "mon-4",
+          "start": "20:20",
+          "end": "20:30",
+          "minutes": 10,
+          "period": "Stations",
+          "title": "5 min stations",
+          "groups": {
+            "QB/DB/WR": "Mike — wheel / gator roll",
+            "LB/RB": "Guthrie — bag tackling",
+            "OL/DL": "Kole — read cut tackling"
+          }
+        },
+        {
+          "id": "mon-5",
+          "start": "20:30",
+          "end": "20:45",
+          "minutes": 15,
+          "period": "EDD / Indy D",
+          "title": "Footwork & position work",
+          "groups": {
+            "QB/DB/WR": "Matt/Shaun — DB EOU footwork",
+            "LB/RB": "Kole/Luke — LBs · Mike — DEs",
+            "OL/DL": "Scott — D-line"
+          }
+        },
+        {
+          "id": "mon-6",
+          "start": "20:45",
+          "end": "21:05",
+          "minutes": 20,
+          "period": "Group O",
+          "title": "Route tree & front blocking",
+          "groups": {
+            "QB/DB/WR": "Route tree 2–9",
+            "OL/DL": "3-man then 4-man front blocking · hammer sets"
+          }
+        },
+        {
+          "id": "mon-7",
+          "start": "21:05",
+          "end": "21:20",
+          "minutes": 15,
+          "period": "Team O",
+          "title": "Pass plays — ORANGE",
+          "detail": "Drink water as needed",
+          "plays": ["ORANGE1", "ORANGE2", "ORANGE3", "ORANGE4", "ORANGE5", "ORANGE6", "ORANGE8", "ORANGE9", "ORANGE22"],
+          "groups": {}
+        },
+        {
+          "id": "mon-8",
+          "start": "21:20",
+          "end": "21:30",
+          "minutes": 10,
+          "period": "Team O",
+          "title": "Pass plays — BROWN",
+          "plays": ["BROWN26", "BROWN28", "BROWN33", "BROWN37", "BROWN42"],
+          "groups": {}
+        },
+        {
+          "id": "mon-9",
+          "start": "21:30",
+          "end": "21:35",
+          "minutes": 5,
+          "period": "Compete",
+          "title": "20-yard broad jump relay",
+          "groups": {}
+        },
+        {
+          "id": "mon-10",
+          "start": "21:35",
+          "end": "21:40",
+          "minutes": 5,
+          "period": "Compete",
+          "title": "30s squat hold + 30s lunge holds",
+          "groups": {}
+        },
+        {
+          "id": "mon-11",
+          "start": "21:40",
+          "end": "21:45",
+          "minutes": 5,
+          "period": "Huddle",
+          "title": "Paperwork — take forms home, bring back signed",
+          "detail": "Black & White Saturday 7:30pm · helmets to Serena · jerseys",
+          "groups": {}
+        }
+      ]
+    },
+    {
+      "id": "tue",
+      "name": "Tuesday",
+      "date": "2026-08-11",
+      "practice": "#2",
+      "window": "7:45–9:45pm",
+      "gear": "Helmets only",
+      "focus": "Relentless · Go Tigers!",
+      "groups": ["QB/DB/WR", "LB/RB", "OL/DL"],
+      "slots": [
+        {
+          "id": "tue-1",
+          "start": "19:45",
+          "end": "20:00",
+          "minutes": 15,
+          "period": "Pre-practice",
+          "title": "Warm up routine",
+          "groups": {}
+        },
+        {
+          "id": "tue-2",
+          "start": "20:00",
+          "end": "20:25",
+          "minutes": 25,
+          "period": "Indy D",
+          "title": "Individual defense",
+          "groups": {
+            "QB/DB/WR": "Matt/Shaun — EOU footwork · tip drill · knockdown",
+            "LB/RB": "Kole/Luke — run vs pass reads · pass coverage · shedding",
+            "OL/DL": "Scott — hand extensions/rip · get-offs · Mike DE techniques"
+          }
+        },
+        {
+          "id": "tue-3",
+          "start": "20:25",
+          "end": "20:40",
+          "minutes": 15,
+          "period": "Group D",
+          "title": "Outside drill · pass rush · pursuit",
+          "groups": {
+            "QB/DB/WR": "Outside vs pull/sweeps · corner blitz / safety cover",
+            "LB/RB": "Coaches choice · pursuit",
+            "OL/DL": "Pass rush"
+          }
+        },
+        {
+          "id": "tue-4",
+          "start": "20:40",
+          "end": "20:55",
+          "minutes": 15,
+          "period": "Team D",
+          "title": "Team D (combine with Group D as Luke prefers)",
+          "groups": {}
+        },
+        {
+          "id": "tue-5",
+          "start": "20:55",
+          "end": "21:10",
+          "minutes": 15,
+          "period": "Indy O",
+          "title": "Individual offense",
+          "groups": {
+            "QB/DB/WR": "Wideout routes 0–10 · Shaun/Matt at QB",
+            "LB/RB": "Ball security · sweep/counter cuts · LB blocks in space",
+            "OL/DL": "Mike/Scott — counter blocks"
+          }
+        },
+        {
+          "id": "tue-6",
+          "start": "21:10",
+          "end": "21:25",
+          "minutes": 15,
+          "period": "Group O",
+          "title": "Sweeps / smash / veer / speed",
+          "groups": {
+            "QB/DB/WR": "Sweeps · smash · veer · speed with RBs/QBs",
+            "OL/DL": "Double teams C/G · guard pulls / sweeps w/ TE"
+          }
+        },
+        {
+          "id": "tue-7",
+          "start": "21:25",
+          "end": "21:40",
+          "minutes": 15,
+          "period": "Team O",
+          "title": "Run plays — BLUE",
+          "plays": ["BLUE3", "BLUE4", "BLUE6", "BLUE21", "BLUE7", "BLUE9", "BLUE10", "BLUE11", "BLUE13", "BLUE20", "BLUE22"],
+          "groups": {}
+        },
+        {
+          "id": "tue-8",
+          "start": "21:40",
+          "end": "21:45",
+          "minutes": 5,
+          "period": "Huddle",
+          "title": "Huddle up",
+          "groups": {}
+        }
+      ]
+    },
+    {
+      "id": "wed",
+      "name": "Wednesday",
+      "date": "2026-08-12",
+      "practice": "#3",
+      "window": "7:30–9:30pm",
+      "gear": "Helmets + shoulder pads",
+      "focus": "Relentless · Go Tigers!",
+      "groups": ["QB/DB/WR", "LB/RB", "OL/DL"],
+      "slots": [
+        {
+          "id": "wed-1",
+          "start": "19:30",
+          "end": "19:45",
+          "minutes": 15,
+          "period": "Pre-practice",
+          "title": "Warm up routine",
+          "groups": {}
+        },
+        {
+          "id": "wed-2",
+          "start": "19:45",
+          "end": "19:50",
+          "minutes": 5,
+          "period": "Sprint",
+          "title": "Two 40-yard sprints as a team",
+          "groups": {}
+        },
+        {
+          "id": "wed-3",
+          "start": "19:50",
+          "end": "20:05",
+          "minutes": 15,
+          "period": "Indy O",
+          "title": "Cuts, flats, reaches, double teams",
+          "groups": {
+            "QB/DB/WR": "Sweep cuts x2 timed 15 yards · delayed flat routes x2",
+            "LB/RB": "Delayed flats · LB blocks",
+            "OL/DL": "Reaches/pulls w/ TEs · double teams"
+          }
+        },
+        {
+          "id": "wed-4",
+          "start": "20:05",
+          "end": "20:20",
+          "minutes": 15,
+          "period": "Group O",
+          "title": "Passing 5-on-5 — ORANGE / BROWN",
+          "plays": ["ORANGE1", "ORANGE2", "ORANGE3", "ORANGE4", "ORANGE5", "ORANGE6", "ORANGE8", "ORANGE9", "ORANGE22", "BROWN26", "BROWN28", "BROWN33", "BROWN37", "BROWN42"],
+          "groups": {
+            "OL/DL": "Pass pro assignments · blitz pickups"
+          }
+        },
+        {
+          "id": "wed-5",
+          "start": "20:20",
+          "end": "20:50",
+          "minutes": 30,
+          "period": "Team O",
+          "title": "Run + pass install",
+          "plays": ["BLUE3", "BLUE4", "BLUE6", "BLUE21", "BLUE7", "BLUE9", "BLUE10", "BLUE11", "BLUE13", "BLUE20", "BLUE22"],
+          "detail": "Also Pink 23,27,28,30–37 · Green 45,46,50",
+          "groups": {}
+        },
+        {
+          "id": "wed-6",
+          "start": "20:50",
+          "end": "21:05",
+          "minutes": 15,
+          "period": "Group D / Stations",
+          "title": "Oaky drill + 4 stations",
+          "detail": "1 Partner strip (Kole) · 2 Shed blocker (Luke) · 3 Tip/INT (Klucken) · 4 Hawk tackle wheel (Mike)",
+          "groups": {}
+        },
+        {
+          "id": "wed-7",
+          "start": "21:05",
+          "end": "21:25",
+          "minutes": 20,
+          "period": "Team D",
+          "title": "Team D vs Scout O",
+          "groups": {}
+        },
+        {
+          "id": "wed-8",
+          "start": "21:25",
+          "end": "21:30",
+          "minutes": 5,
+          "period": "Huddle",
+          "title": "Pogo switches · huddle up",
+          "groups": {}
+        }
+      ]
+    },
+    {
+      "id": "thu",
+      "name": "Thursday",
+      "date": "2026-08-13",
+      "practice": "#4",
+      "window": "7:30–9:30pm",
+      "gear": "Helmets + shoulder pads",
+      "focus": "Relentless · Go Tigers!",
+      "groups": ["QB/DB/WR", "LB/RB", "OL/DL"],
+      "slots": [
+        {
+          "id": "thu-1",
+          "start": "19:30",
+          "end": "19:40",
+          "minutes": 10,
+          "period": "Pre-practice",
+          "title": "Warm up",
+          "groups": {}
+        },
+        {
+          "id": "thu-2",
+          "start": "19:40",
+          "end": "19:55",
+          "minutes": 15,
+          "period": "Stations",
+          "title": "Tackling stations",
+          "groups": {
+            "QB/DB/WR": "Shaun — tracking tackling",
+            "LB/RB": "Luke — coaches choice",
+            "OL/DL": "Kole — read cut"
+          }
+        },
+        {
+          "id": "thu-3",
+          "start": "19:55",
+          "end": "20:05",
+          "minutes": 10,
+          "period": "Indy D",
+          "title": "Individual defense",
+          "groups": {
+            "QB/DB/WR": "Shaun — DBs",
+            "LB/RB": "Luke — LBs",
+            "OL/DL": "Scott — D-line"
+          }
+        },
+        {
+          "id": "thu-4",
+          "start": "20:05",
+          "end": "20:15",
+          "minutes": 10,
+          "period": "Group O",
+          "title": "Green 53–55 · down blocking w/ TEs",
+          "detail": "Kellen come over after a couple reps with line",
+          "groups": {}
+        },
+        {
+          "id": "thu-5",
+          "start": "20:15",
+          "end": "20:45",
+          "minutes": 30,
+          "period": "Team O",
+          "title": "BLUE / PINK / GREEN install",
+          "plays": ["BLUE3", "BLUE4", "BLUE6", "BLUE21", "BLUE7", "BLUE9", "BLUE10", "BLUE11", "BLUE13", "BLUE20", "BLUE22"],
+          "detail": "Pink 23,27,28,30–37 · Green 45,46,50–55 · rotate O/D · Brooks then Rock then Kellen at QB",
+          "groups": {}
+        },
+        {
+          "id": "thu-6",
+          "start": "20:45",
+          "end": "21:10",
+          "minutes": 25,
+          "period": "Team / Scrimmage prep",
+          "title": "Rotate guys on O and D — everyone gets reps",
+          "groups": {}
+        },
+        {
+          "id": "thu-7",
+          "start": "21:10",
+          "end": "21:20",
+          "minutes": 10,
+          "period": "Compete",
+          "title": "Lunge switches",
+          "groups": {}
+        },
+        {
+          "id": "thu-8",
+          "start": "21:20",
+          "end": "21:30",
+          "minutes": 10,
+          "period": "Huddle",
+          "title": "Announce White & Black teams",
+          "detail": "Tomorrow: scrimmage time in practice",
+          "groups": {}
+        }
+      ]
+    },
+    {
+      "id": "fri",
+      "name": "Friday",
+      "date": "2026-08-14",
+      "practice": "#5",
+      "window": "7:30–9:00pm",
+      "gear": "Full gear",
+      "focus": "Relentless · Go Tigers!",
+      "groups": ["QB/DB/WR", "LB/RB", "OL/DL"],
+      "slots": [
+        {
+          "id": "fri-1",
+          "start": "19:30",
+          "end": "19:45",
+          "minutes": 15,
+          "period": "Pre-practice",
+          "title": "Warm up routine",
+          "groups": {}
+        },
+        {
+          "id": "fri-2",
+          "start": "19:45",
+          "end": "19:55",
+          "minutes": 10,
+          "period": "Indy D",
+          "title": "Individual defense",
+          "groups": {
+            "QB/DB/WR": "Shaun — DBs",
+            "LB/RB": "Luke — LBs",
+            "OL/DL": "Scott — D-line"
+          }
+        },
+        {
+          "id": "fri-3",
+          "start": "19:55",
+          "end": "20:05",
+          "minutes": 10,
+          "period": "Indy O",
+          "title": "Individual offense",
+          "groups": {
+            "QB/DB/WR": "Routes",
+            "LB/RB": "Luke — RBs",
+            "OL/DL": "Scott — O-line"
+          }
+        },
+        {
+          "id": "fri-4",
+          "start": "20:05",
+          "end": "20:55",
+          "minutes": 50,
+          "period": "Scrimmage",
+          "title": "Black vs White scrimmage",
+          "detail": "Matt O / Kole O · Luke/Shaun D · Guthrie Line · Mike camera",
+          "groups": {}
+        },
+        {
+          "id": "fri-5",
+          "start": "20:55",
+          "end": "21:00",
+          "minutes": 5,
+          "period": "Huddle",
+          "title": "Huddle up",
+          "detail": "Black & White tomorrow 7:30 — dressed & ready to warm up by 7:00",
+          "groups": {}
+        }
+      ]
+    }
+  ]
+}
