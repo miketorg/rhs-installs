@@ -335,6 +335,11 @@ h1 {
   border-color: rgba(200, 245, 66, 0.35);
 }
 
+.motions-tile {
+  background: linear-gradient(160deg, rgba(56, 189, 248, 0.2), rgba(14, 36, 24, 0.98));
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
 .tile-note {
   margin: 8px 0 0;
   color: var(--muted);

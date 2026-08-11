@@ -19,6 +19,8 @@ const COLOR_HEX = {
   CYAN: "#06b6d4",
   MAGENTA: "#c026d3",
   MAROON: "#7f1d1d",
+  TREE: "#c8f542",
+  MOTION: "#38bdf8",
 };
 
 const state = {
@@ -315,7 +317,10 @@ function renderHome() {
   els.backBtn.classList.add("hidden");
   els.search.closest(".search-wrap").classList.remove("hidden");
 
-  const days = state.data.days
+  const installDays = state.data.days.filter((d) => d.slug !== "motions");
+  const motions = state.data.days.find((d) => d.slug === "motions");
+
+  const days = installDays
     .map(
       (d) => `
       <button class="day-tile" data-day="${d.slug}">
@@ -337,6 +342,18 @@ function renderHome() {
   const today = todayDateStr();
   const todayDay = sched.days.find((d) => d.date === today);
 
+  const motionsTile = motions
+    ? `
+    <button class="day-tile motions-tile" data-day="motions">
+      <div>
+        <h2>${motions.name}</h2>
+        <p class="count">${motions.playCount} diagrams</p>
+        <p class="tile-note">Route tree · Zip Zap Jet Monkey</p>
+      </div>
+      <p class="count">Tap to open</p>
+    </button>`
+    : "";
+
   els.app.innerHTML = `
     <p class="section-label">Practice</p>
     <div class="day-grid">
@@ -348,6 +365,7 @@ function renderHome() {
         </div>
         <p class="count">Open schedule + timers</p>
       </button>
+      ${motionsTile}
     </div>
     <p class="section-label">Install packets</p>
     <div class="day-grid">${days}</div>

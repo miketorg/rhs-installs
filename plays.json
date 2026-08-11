@@ -28,6 +28,16 @@
         "BROWN",
         "ORANGE"
       ]
+    },
+    {
+      "name": "Passing Tree / Motions",
+      "slug": "motions",
+      "pdf": "pdfs/motions.pdf",
+      "playCount": 3,
+      "colors": [
+        "TREE",
+        "MOTION"
+      ]
     }
   ],
   "plays": [
@@ -498,6 +508,45 @@
       "image": "images/day3/brown42.png",
       "pdf": "pdfs/day3.pdf",
       "search": "BROWN42"
+    },
+    {
+      "id": "motions-passingtree",
+      "play": "PASSING TREE",
+      "color": "TREE",
+      "number": "1",
+      "day": "Passing Tree / Motions",
+      "daySlug": "motions",
+      "page": 2,
+      "image": "images/motions/passingtree.png",
+      "pdf": "pdfs/motions.pdf",
+      "search": "PASSINGTREEROUTESODDSEVENINOUTSLSRPOPMSWFLATWAGLE",
+      "note": "Routes \u00b7 odds out, even in"
+    },
+    {
+      "id": "motions-motions",
+      "play": "MOTIONS",
+      "color": "MOTION",
+      "number": "2",
+      "day": "Passing Tree / Motions",
+      "daySlug": "motions",
+      "page": 3,
+      "image": "images/motions/motions.png",
+      "pdf": "pdfs/motions.pdf",
+      "search": "MOTIONSZIPZAPSHORTZIPJETMONKEYSZIPMONKY",
+      "note": "Zip Zap Jet Monkey"
+    },
+    {
+      "id": "motions-motions2",
+      "play": "MOTIONS 2",
+      "color": "MOTION",
+      "number": "3",
+      "day": "Passing Tree / Motions",
+      "daySlug": "motions",
+      "page": 4,
+      "image": "images/motions/motions2.png",
+      "pdf": "pdfs/motions.pdf",
+      "search": "MOTIONSZIPZAPSHORTZIPJETMONKEYSZIPMONKY",
+      "note": "Zip Zap Jet Monkey"
     }
   ]
 }
