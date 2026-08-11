@@ -521,6 +521,21 @@ h1 {
   backdrop-filter: blur(10px);
 }
 
+.timer-dock.alarming {
+  border-color: #ff6b6b;
+  background: rgba(60, 10, 10, 0.96);
+  animation: alarmFlash 0.7s ease infinite;
+}
+
+@keyframes alarmFlash {
+  50% { background: rgba(120, 20, 20, 0.98); }
+}
+
+.timer-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
 body.has-timer {
   padding-bottom: calc(140px + var(--safe-bottom));
 }

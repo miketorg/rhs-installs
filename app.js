@@ -41,9 +41,13 @@ const timer = {
   remainingMs: 0,
   running: false,
   paused: false,
+  alarming: false,
   endsAt: 0,
   raf: 0,
   tickHandle: 0,
+  audioCtx: null,
+  alarmNodes: null,
+  vibrateHandle: 0,
 };
 
 const els = {
@@ -162,58 +166,127 @@ function searchPlays(query) {
   });
 }
 
-function beep() {
+async function unlockAudio() {
   try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const o = ctx.createOscillator();
-    const g = ctx.createGain();
-    o.type = "square";
-    o.frequency.value = 880;
-    g.gain.value = 0.05;
-    o.connect(g);
-    g.connect(ctx.destination);
-    o.start();
-    setTimeout(() => {
-      o.stop();
-      ctx.close();
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    if (!timer.audioCtx) timer.audioCtx = new AC();
+    if (timer.audioCtx.state === "suspended") await timer.audioCtx.resume();
+  } catch (_) {
+    /* ignore */
+  }
+}
+
+function stopAlarm() {
+  timer.alarming = false;
+  if (timer.vibrateHandle) {
+    clearInterval(timer.vibrateHandle);
+    timer.vibrateHandle = 0;
+  }
+  if (timer.alarmNodes && timer.alarmNodes.pulseHandle) {
+    clearInterval(timer.alarmNodes.pulseHandle);
+  }
+  if (navigator.vibrate) navigator.vibrate(0);
+  if (timer.alarmNodes) {
+    try {
+      (timer.alarmNodes.oscillators || []).forEach((o) => {
+        try {
+          o.stop();
+        } catch (_) {
+          /* already stopped */
+        }
+      });
+      if (timer.alarmNodes.gain) timer.alarmNodes.gain.disconnect();
+    } catch (_) {
+      /* ignore */
+    }
+    timer.alarmNodes = null;
+  }
+  els.timerDock.classList.remove("alarming");
+}
+
+function startAlarm() {
+  stopAlarm();
+  timer.alarming = true;
+  els.timerDock.classList.add("alarming");
+
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) throw new Error("no audio");
+    if (!timer.audioCtx) timer.audioCtx = new AC();
+    const ctx = timer.audioCtx;
+    if (ctx.state === "suspended") ctx.resume();
+
+    const gain = ctx.createGain();
+    gain.gain.value = 0.01;
+    gain.connect(ctx.destination);
+
+    const o1 = ctx.createOscillator();
+    const o2 = ctx.createOscillator();
+    o1.type = "square";
+    o2.type = "square";
+    o1.frequency.value = 880;
+    o2.frequency.value = 1174;
+    o1.connect(gain);
+    o2.connect(gain);
+    o1.start();
+    o2.start();
+
+    // Keep pulsing forever until End is pressed
+    let on = false;
+    const pulseHandle = setInterval(() => {
+      if (!timer.alarming) return;
+      on = !on;
+      try {
+        gain.gain.setTargetAtTime(on ? 0.16 : 0.01, ctx.currentTime, 0.02);
+        if (on) {
+          o1.frequency.setValueAtTime(on && Date.now() % 700 < 350 ? 880 : 1046, ctx.currentTime);
+          o2.frequency.setValueAtTime(on && Date.now() % 700 < 350 ? 1174 : 1396, ctx.currentTime);
+        }
+      } catch (_) {
+        /* ignore */
+      }
     }, 220);
-    setTimeout(() => {
-      const ctx2 = new (window.AudioContext || window.webkitAudioContext)();
-      const o2 = ctx2.createOscillator();
-      const g2 = ctx2.createGain();
-      o2.type = "square";
-      o2.frequency.value = 660;
-      g2.gain.value = 0.05;
-      o2.connect(g2);
-      g2.connect(ctx2.destination);
-      o2.start();
-      setTimeout(() => {
-        o2.stop();
-        ctx2.close();
-      }, 280);
-    }, 260);
+
+    timer.alarmNodes = { oscillators: [o1, o2], gain, pulseHandle };
   } catch (_) {
     /* ignore audio failures */
   }
-  if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+
+  if (navigator.vibrate) {
+    navigator.vibrate([400, 200, 400, 200]);
+    timer.vibrateHandle = setInterval(() => {
+      if (timer.alarming && navigator.vibrate) navigator.vibrate([400, 200, 400, 200]);
+    }, 1400);
+  }
 }
 
 function updateTimerUI() {
   const found = findSlot(timer.dayId, timer.slotId);
-  if (!found) {
+  if (!found && !timer.alarming) {
     els.timerDock.classList.add("hidden");
     document.body.classList.remove("has-timer");
     return;
   }
+  if (!found) return;
   els.timerDock.classList.remove("hidden");
   document.body.classList.add("has-timer");
-  els.timerPeriod.textContent = `${found.day.name} · ${found.slot.period}`;
-  els.timerTitle.textContent = found.slot.title;
-  els.timerDisplay.textContent = formatMs(timer.remainingMs);
+  els.timerPeriod.textContent = timer.alarming
+    ? `${found.day.name} · TIME UP`
+    : `${found.day.name} · ${found.slot.period}`;
+  els.timerTitle.textContent = timer.alarming ? "Hit End to silence alarm" : found.slot.title;
+  els.timerDisplay.textContent = timer.alarming ? "00:00" : formatMs(timer.remainingMs);
   els.timerPause.textContent = timer.paused || !timer.running ? "Resume" : "Pause";
-  const pct = timer.totalMs ? Math.max(0, Math.min(100, (timer.remainingMs / timer.totalMs) * 100)) : 0;
+  els.timerPause.disabled = timer.alarming;
+  els.timerSkip.disabled = timer.alarming;
+  els.timerStop.textContent = "End";
+  const pct = timer.alarming
+    ? 0
+    : timer.totalMs
+      ? Math.max(0, Math.min(100, (timer.remainingMs / timer.totalMs) * 100))
+      : 0;
   els.timerBar.style.width = `${pct}%`;
-  els.timerDisplay.classList.toggle("urgent", timer.remainingMs <= 30000 && timer.remainingMs > 0);
+  els.timerDisplay.classList.toggle("urgent", timer.alarming || (timer.remainingMs <= 30000 && timer.remainingMs > 0));
   document.querySelectorAll(".slot-card").forEach((card) => {
     card.classList.toggle("timing", card.dataset.slotId === timer.slotId);
   });
@@ -231,15 +304,8 @@ function finishTimer() {
   timer.paused = false;
   timer.remainingMs = 0;
   stopTimerLoop();
+  startAlarm();
   updateTimerUI();
-  beep();
-  const found = findSlot(timer.dayId, timer.slotId);
-  if (found && found.index < found.day.slots.length - 1) {
-    const next = found.day.slots[found.index + 1];
-    const goNext = window.confirm(`Time! Start next period?\n\n${next.period}: ${next.title} (${next.minutes} min)`);
-    if (goNext) startTimer(found.day.id, next.id, next.minutes * 60 * 1000);
-    else updateTimerUI();
-  }
 }
 
 function tickTimer() {
@@ -252,6 +318,8 @@ function tickTimer() {
 function startTimer(dayId, slotId, durationMs) {
   const found = findSlot(dayId, slotId);
   if (!found) return;
+  stopAlarm();
+  unlockAudio();
   timer.dayId = dayId;
   timer.slotId = slotId;
   timer.totalMs = durationMs;
@@ -287,6 +355,10 @@ function pauseResumeTimer() {
 }
 
 function stopTimer() {
+  const wasAlarming = timer.alarming;
+  const finishedDayId = timer.dayId;
+  const finishedSlotId = timer.slotId;
+  stopAlarm();
   timer.running = false;
   timer.paused = false;
   timer.remainingMs = 0;
@@ -296,9 +368,22 @@ function stopTimer() {
   stopTimerLoop();
   updateTimerUI();
   document.querySelectorAll(".slot-card.timing").forEach((c) => c.classList.remove("timing"));
+
+  // After silencing, offer the next period (does not auto-start)
+  if (wasAlarming) {
+    const found = findSlot(finishedDayId, finishedSlotId);
+    if (found && found.index < found.day.slots.length - 1) {
+      const next = found.day.slots[found.index + 1];
+      const goNext = window.confirm(
+        `Alarm off. Start next period?\n\n${next.period}: ${next.title} (${next.minutes} min)`
+      );
+      if (goNext) startTimer(found.day.id, next.id, next.minutes * 60 * 1000);
+    }
+  }
 }
 
 function skipTimer() {
+  if (timer.alarming) return;
   const found = findSlot(timer.dayId, timer.slotId);
   if (!found) return;
   if (found.index >= found.day.slots.length - 1) {
