@@ -378,6 +378,8 @@
           "period": "Group O",
           "title": "Green 53–55 · down blocking w/ TEs",
           "detail": "Kellen come over after a couple reps with line",
+          "plays": ["GREEN53", "GREEN54", "GREEN55"],
+          "preferPacket": "day4groupo",
           "groups": {}
         },
         {
@@ -387,8 +389,13 @@
           "minutes": 30,
           "period": "Team O",
           "title": "BLUE / PINK / GREEN install",
-          "plays": ["BLUE3", "BLUE4", "BLUE6", "BLUE21", "BLUE7", "BLUE9", "BLUE10", "BLUE11", "BLUE13", "BLUE20", "BLUE22"],
-          "detail": "Pink 23,27,28,30–37 · Green 45,46,50–55 · rotate O/D · Brooks then Rock then Kellen at QB",
+          "plays": [
+            "BLUE3", "BLUE4", "BLUE6", "BLUE21", "BLUE7", "BLUE9", "BLUE10", "BLUE11", "BLUE13", "BLUE20", "BLUE22",
+            "PINK23", "PINK27", "PINK28", "PINK30", "PINK31", "PINK32", "PINK33", "PINK34", "PINK35", "PINK36", "PINK37",
+            "GREEN45", "GREEN46", "GREEN50", "GREEN51", "GREEN52", "GREEN53", "GREEN54", "GREEN55"
+          ],
+          "preferPacket": "day4teamo",
+          "detail": "Rotate O/D · Brooks then Rock then Kellen at QB",
           "groups": {}
         },
         {

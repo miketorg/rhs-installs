@@ -576,12 +576,37 @@ function slotGroupsHtml(slot) {
 
 function slotPlaysHtml(slot) {
   if (!slot.plays || !slot.plays.length) return "";
+  const prefer = slot.preferPacket || "";
   return `<div class="play-chips">${slot.plays
     .map((p) => {
       const color = p.replace(/\d+/g, "");
-      return `<button type="button" class="play-chip" data-play="${p}" style="--chip:${colorHex(color)}">${p}</button>`;
+      return `<button type="button" class="play-chip" data-play="${p}" data-prefer="${prefer}" style="--chip:${colorHex(color)}">${p}</button>`;
     })
     .join("")}</div>`;
+}
+
+function openPlayByName(playName, preferPacket) {
+  const q = normalizeQuery(playName);
+  let results = searchPlays(q);
+  if (!results.length) return;
+  if (preferPacket) {
+    const preferred = results.filter((p) => p.daySlug === preferPacket);
+    if (preferred.length) results = preferred;
+  }
+  // Exact play name first
+  results.sort((a, b) => {
+    const ae = a.search === q ? 0 : 1;
+    const be = b.search === q ? 0 : 1;
+    return ae - be;
+  });
+  els.search.closest(".search-wrap").classList.remove("hidden");
+  els.search.value = playName;
+  state.list = results;
+  state.view = "search";
+  els.title.textContent = playName;
+  els.backBtn.classList.remove("hidden");
+  renderPlayGrid(results, `${results.length} match${results.length === 1 ? "" : "es"} for ${q}`);
+  openViewer(0);
 }
 
 function renderScheduleDay(dayId) {
@@ -663,14 +688,7 @@ function renderScheduleDay(dayId) {
   });
   els.app.querySelectorAll("[data-play]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      els.search.closest(".search-wrap").classList.remove("hidden");
-      els.search.value = btn.dataset.play;
-      renderSearch(btn.dataset.play);
-      const results = searchPlays(btn.dataset.play);
-      if (results.length) {
-        state.list = results;
-        openViewer(0);
-      }
+      openPlayByName(btn.dataset.play, btn.dataset.prefer || "");
     });
   });
 
