@@ -41,6 +41,15 @@
       ]
     },
     {
+      "name": "DAY4 Group O",
+      "slug": "day4groupo",
+      "pdf": "pdfs/day4groupo.pdf",
+      "playCount": 3,
+      "colors": [
+        "GREEN"
+      ]
+    },
+    {
       "name": "Passing Tree / Motions",
       "slug": "motions",
       "pdf": "pdfs/motions.pdf",
@@ -858,6 +867,42 @@
       "image": "images/day3teamo/green50.png",
       "pdf": "pdfs/day3teamo.pdf",
       "search": "GREEN50"
+    },
+    {
+      "id": "day4groupo-green53",
+      "play": "GREEN53",
+      "color": "GREEN",
+      "number": "53",
+      "day": "DAY4 Group O",
+      "daySlug": "day4groupo",
+      "page": 2,
+      "image": "images/day4groupo/green53.png",
+      "pdf": "pdfs/day4groupo.pdf",
+      "search": "GREEN53"
+    },
+    {
+      "id": "day4groupo-green54",
+      "play": "GREEN54",
+      "color": "GREEN",
+      "number": "54",
+      "day": "DAY4 Group O",
+      "daySlug": "day4groupo",
+      "page": 3,
+      "image": "images/day4groupo/green54.png",
+      "pdf": "pdfs/day4groupo.pdf",
+      "search": "GREEN54"
+    },
+    {
+      "id": "day4groupo-green55",
+      "play": "GREEN55",
+      "color": "GREEN",
+      "number": "55",
+      "day": "DAY4 Group O",
+      "daySlug": "day4groupo",
+      "page": 4,
+      "image": "images/day4groupo/green55.png",
+      "pdf": "pdfs/day4groupo.pdf",
+      "search": "GREEN55"
     }
   ]
 }
