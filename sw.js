@@ -1,4 +1,4 @@
-const CACHE = "rhs-installs-v13";
+const CACHE = "rhs-installs-v14";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -9,7 +9,6 @@ const PRECACHE = [
   "./pdfs/week1-practice.pdf",
   "./pdfs/motions.pdf",
   "./pdfs/day3teamo.pdf",
-  "./pdfs/day4teamo.pdf",
   "./pdfs/day4groupo.pdf",
   "./manifest.json",
   "./icons/icon.svg",
