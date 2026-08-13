@@ -59,6 +59,7 @@ const els = {
   offlineBadge: document.getElementById("offlineBadge"),
   viewer: document.getElementById("viewer"),
   viewerImg: document.getElementById("viewerImg"),
+  viewerStack: document.getElementById("viewerStack"),
   viewerPlay: document.getElementById("viewerPlay"),
   viewerDay: document.getElementById("viewerDay"),
   prevPlay: document.getElementById("prevPlay"),
@@ -585,20 +586,79 @@ function slotPlaysHtml(slot) {
     .join("")}</div>`;
 }
 
+function findVsPair(playName) {
+  const q = normalizeQuery(playName);
+  const all = state.data.plays.filter((p) => p.search === q || normalizeQuery(p.play) === q);
+  const v34 = all.find((p) => p.daySlug === "day4groupo34" || p.vs === "3-4");
+  const v44 = all.find((p) => p.daySlug === "day4groupo44" || p.vs === "4-4");
+  if (v34 && v44) return { v34, v44 };
+  return null;
+}
+
+function renderViewerStack(panels) {
+  if (!panels.length) return;
+  if (panels.length === 1) {
+    els.viewerStack.classList.remove("dual");
+    els.viewerStack.innerHTML = `<img id="viewerImg" alt="${panels[0].alt}" src="${panels[0].src}" />`;
+    els.viewerImg = document.getElementById("viewerImg");
+    return;
+  }
+  els.viewerStack.classList.add("dual");
+  els.viewerStack.innerHTML = panels
+    .map(
+      (panel) => `
+      <section class="viewer-panel">
+        <p class="viewer-panel-label">${panel.label}</p>
+        <img src="${panel.src}" alt="${panel.alt}" />
+      </section>`
+    )
+    .join("");
+  els.viewerImg = null;
+}
+
 function openPlayByName(playName, preferPacket) {
   const q = normalizeQuery(playName);
+  const pair = findVsPair(playName);
+  if (pair && (preferPacket === "day4groupo34" || preferPacket === "day4groupo44" || preferPacket === "both" || !preferPacket)) {
+    // For Group/Team O chips, always show both defenses stacked
+    if (preferPacket === "day4groupo34" || preferPacket === "day4groupo44" || preferPacket === "both") {
+      state.list = [pair.v34, pair.v44];
+      state.view = "search";
+      els.title.textContent = playName;
+      els.backBtn.classList.remove("hidden");
+      els.search.closest(".search-wrap").classList.remove("hidden");
+      els.search.value = playName;
+      openDualViewer(pair.v34, pair.v44);
+      return;
+    }
+  }
+
   let results = searchPlays(q);
   if (!results.length) return;
-  if (preferPacket) {
+  if (preferPacket && preferPacket !== "both") {
     const preferred = results.filter((p) => p.daySlug === preferPacket);
     if (preferred.length) results = preferred;
   }
-  // Exact play name first
   results.sort((a, b) => {
     const ae = a.search === q ? 0 : 1;
     const be = b.search === q ? 0 : 1;
     return ae - be;
   });
+
+  // If exact match has both 3-4 and 4-4, stack them
+  const exact = results.filter((p) => p.search === q);
+  const stacked = findVsPair(playName);
+  if (stacked) {
+    state.list = [stacked.v34, stacked.v44];
+    state.view = "search";
+    els.title.textContent = playName;
+    els.backBtn.classList.remove("hidden");
+    els.search.closest(".search-wrap").classList.remove("hidden");
+    els.search.value = playName;
+    openDualViewer(stacked.v34, stacked.v44);
+    return;
+  }
+
   els.search.closest(".search-wrap").classList.remove("hidden");
   els.search.value = playName;
   state.list = results;
@@ -607,6 +667,45 @@ function openPlayByName(playName, preferPacket) {
   els.backBtn.classList.remove("hidden");
   renderPlayGrid(results, `${results.length} match${results.length === 1 ? "" : "es"} for ${q}`);
   openViewer(0);
+}
+
+function openDualViewer(play34, play44) {
+  state.index = 0;
+  state.dual = true;
+  els.viewerPlay.textContent = play34.play;
+  els.viewerDay.textContent = "vs 3-4 on top · vs 4-4 below";
+  renderViewerStack([
+    { label: "vs 3-4", src: play34.image, alt: `${play34.play} vs 3-4` },
+    { label: "vs 4-4", src: play44.image, alt: `${play44.play} vs 4-4` },
+  ]);
+  els.prevPlay.disabled = true;
+  els.nextPlay.disabled = true;
+  if (!els.viewer.open) els.viewer.showModal();
+}
+
+function openViewer(index) {
+  state.index = index;
+  state.dual = false;
+  const play = state.list[index];
+  if (!play) return;
+
+  // If this play has a vs pair in DAY4 Group/Team O, show both stacked
+  const pair = findVsPair(play.play);
+  if (pair && (play.daySlug === "day4groupo34" || play.daySlug === "day4groupo44" || play.vs)) {
+    openDualViewer(pair.v34, pair.v44);
+    return;
+  }
+
+  els.viewerPlay.textContent = play.play;
+  els.viewerDay.textContent = `${play.day} · page ${play.page}`;
+  renderViewerStack([{ label: "", src: play.image, alt: play.play }]);
+  // single image mode without label chrome
+  els.viewerStack.classList.remove("dual");
+  els.viewerStack.innerHTML = `<img id="viewerImg" alt="${play.play}" src="${play.image}" />`;
+  els.viewerImg = document.getElementById("viewerImg");
+  els.prevPlay.disabled = index <= 0;
+  els.nextPlay.disabled = index >= state.list.length - 1;
+  if (!els.viewer.open) els.viewer.showModal();
 }
 
 function renderScheduleDay(dayId) {
@@ -693,19 +792,6 @@ function renderScheduleDay(dayId) {
   });
 
   updateTimerUI();
-}
-
-function openViewer(index) {
-  state.index = index;
-  const play = state.list[index];
-  if (!play) return;
-  els.viewerPlay.textContent = play.play;
-  els.viewerDay.textContent = `${play.day} · page ${play.page}`;
-  els.viewerImg.src = play.image;
-  els.viewerImg.alt = play.play;
-  els.prevPlay.disabled = index <= 0;
-  els.nextPlay.disabled = index >= state.list.length - 1;
-  if (!els.viewer.open) els.viewer.showModal();
 }
 
 function stepViewer(delta) {

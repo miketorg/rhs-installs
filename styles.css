@@ -330,6 +330,41 @@ h1 {
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
+.viewer-stack {
+  width: min(100%, 920px);
+  display: grid;
+  gap: 14px;
+  justify-items: stretch;
+}
+
+.viewer-stack.dual {
+  gap: 18px;
+}
+
+.viewer-panel {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.viewer-panel-label {
+  margin: 0;
+  padding: 8px 12px;
+  background: #0b1f14;
+  color: #c8f542;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.viewer-panel img {
+  width: 100%;
+  display: block;
+  box-shadow: none;
+}
+
 .schedule-tile {
   background: linear-gradient(160deg, rgba(200, 245, 66, 0.18), rgba(14, 36, 24, 0.98));
   border-color: rgba(200, 245, 66, 0.35);
