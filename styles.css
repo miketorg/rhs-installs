@@ -620,6 +620,21 @@ body.has-timer {
   gap: 8px;
 }
 
+.timer-actions.alarm-actions {
+  grid-template-columns: 1fr 1fr;
+}
+
+.timer-actions.alarm-actions #timerPause,
+.timer-actions.alarm-actions #timerSkip {
+  display: none;
+}
+
+.timer-btn.buzz {
+  background: rgba(200, 245, 66, 0.25);
+  border: 1px solid rgba(200, 245, 66, 0.55);
+  color: var(--accent);
+}
+
 .timer-btn {
   background: rgba(255,255,255,0.08);
   color: var(--ink);

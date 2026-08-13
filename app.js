@@ -47,6 +47,8 @@ const timer = {
   tickHandle: 0,
   audioCtx: null,
   alarmNodes: null,
+  alarmAudio: null,
+  audioKeepAlive: 0,
   vibrateHandle: 0,
 };
 
@@ -70,6 +72,7 @@ const els = {
   timerDisplay: document.getElementById("timerDisplay"),
   timerPause: document.getElementById("timerPause"),
   timerSkip: document.getElementById("timerSkip"),
+  timerBuzz: document.getElementById("timerBuzz"),
   timerStop: document.getElementById("timerStop"),
   timerBar: document.getElementById("timerBar"),
 };
@@ -170,11 +173,62 @@ function searchPlays(query) {
 async function unlockAudio() {
   try {
     const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return;
-    if (!timer.audioCtx) timer.audioCtx = new AC();
-    if (timer.audioCtx.state === "suspended") await timer.audioCtx.resume();
+    if (AC) {
+      if (!timer.audioCtx) timer.audioCtx = new AC();
+      if (timer.audioCtx.state === "suspended") await timer.audioCtx.resume();
+    }
   } catch (_) {
     /* ignore */
+  }
+
+  try {
+    if (!timer.alarmAudio) {
+      const audio = new Audio("./alarm.wav");
+      audio.loop = true;
+      audio.preload = "auto";
+      audio.setAttribute("playsinline", "true");
+      audio.volume = 1;
+      timer.alarmAudio = audio;
+    }
+    const audio = timer.alarmAudio;
+    audio.muted = true;
+    audio.currentTime = 0;
+    // Prime playback during the user tap so iOS allows later play()
+    const p = audio.play();
+    if (p && p.then) {
+      await p;
+      audio.pause();
+      audio.currentTime = 0;
+      audio.muted = false;
+    }
+  } catch (_) {
+    try {
+      if (timer.alarmAudio) {
+        timer.alarmAudio.pause();
+        timer.alarmAudio.muted = false;
+      }
+    } catch (__) {
+      /* ignore */
+    }
+  }
+}
+
+function keepAudioAlive() {
+  if (timer.audioKeepAlive) return;
+  timer.audioKeepAlive = setInterval(() => {
+    if (!timer.running && !timer.alarming) return;
+    try {
+      if (timer.audioCtx && timer.audioCtx.state === "suspended") timer.audioCtx.resume();
+    } catch (_) {
+      /* ignore */
+    }
+  }, 10000);
+}
+
+function clearAudioKeepAlive() {
+  if (timer.audioKeepAlive) {
+    clearInterval(timer.audioKeepAlive);
+    timer.audioKeepAlive = 0;
   }
 }
 
@@ -188,6 +242,15 @@ function stopAlarm() {
     clearInterval(timer.alarmNodes.pulseHandle);
   }
   if (navigator.vibrate) navigator.vibrate(0);
+  if (timer.alarmAudio) {
+    try {
+      timer.alarmAudio.pause();
+      timer.alarmAudio.currentTime = 0;
+      timer.alarmAudio.muted = false;
+    } catch (_) {
+      /* ignore */
+    }
+  }
   if (timer.alarmNodes) {
     try {
       (timer.alarmNodes.oscillators || []).forEach((o) => {
@@ -206,20 +269,35 @@ function stopAlarm() {
   els.timerDock.classList.remove("alarming");
 }
 
-function startAlarm() {
-  stopAlarm();
-  timer.alarming = true;
-  els.timerDock.classList.add("alarming");
+async function playAlarmSound() {
+  // HTMLAudio is the most reliable path on iPhone
+  try {
+    if (!timer.alarmAudio) {
+      timer.alarmAudio = new Audio("./alarm.wav");
+      timer.alarmAudio.loop = true;
+      timer.alarmAudio.preload = "auto";
+      timer.alarmAudio.setAttribute("playsinline", "true");
+    }
+    const audio = timer.alarmAudio;
+    audio.loop = true;
+    audio.muted = false;
+    audio.volume = 1;
+    audio.currentTime = 0;
+    await audio.play();
+    return true;
+  } catch (_) {
+    /* fall through to Web Audio */
+  }
 
   try {
     const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) throw new Error("no audio");
+    if (!AC) return false;
     if (!timer.audioCtx) timer.audioCtx = new AC();
     const ctx = timer.audioCtx;
-    if (ctx.state === "suspended") ctx.resume();
+    if (ctx.state === "suspended") await ctx.resume();
 
     const gain = ctx.createGain();
-    gain.gain.value = 0.01;
+    gain.gain.value = 0.2;
     gain.connect(ctx.destination);
 
     const o1 = ctx.createOscillator();
@@ -233,26 +311,37 @@ function startAlarm() {
     o1.start();
     o2.start();
 
-    // Keep pulsing forever until End is pressed
     let on = false;
     const pulseHandle = setInterval(() => {
       if (!timer.alarming) return;
       on = !on;
       try {
-        gain.gain.setTargetAtTime(on ? 0.16 : 0.01, ctx.currentTime, 0.02);
-        if (on) {
-          o1.frequency.setValueAtTime(on && Date.now() % 700 < 350 ? 880 : 1046, ctx.currentTime);
-          o2.frequency.setValueAtTime(on && Date.now() % 700 < 350 ? 1174 : 1396, ctx.currentTime);
-        }
-      } catch (_) {
+        gain.gain.setTargetAtTime(on ? 0.28 : 0.02, ctx.currentTime, 0.02);
+        o1.frequency.setValueAtTime(on ? 880 : 1046, ctx.currentTime);
+        o2.frequency.setValueAtTime(on ? 1174 : 1396, ctx.currentTime);
+      } catch (__) {
         /* ignore */
       }
     }, 220);
 
     timer.alarmNodes = { oscillators: [o1, o2], gain, pulseHandle };
+    return true;
   } catch (_) {
-    /* ignore audio failures */
+    return false;
   }
+}
+
+function startAlarm() {
+  stopAlarm();
+  timer.alarming = true;
+  els.timerDock.classList.add("alarming");
+  keepAudioAlive();
+
+  playAlarmSound().then((ok) => {
+    if (!ok) {
+      els.timerTitle.textContent = "Tap BUZZ then End · check silent switch";
+    }
+  });
 
   if (navigator.vibrate) {
     navigator.vibrate([400, 200, 400, 200]);
@@ -275,12 +364,17 @@ function updateTimerUI() {
   els.timerPeriod.textContent = timer.alarming
     ? `${found.day.name} · TIME UP`
     : `${found.day.name} · ${found.slot.period}`;
-  els.timerTitle.textContent = timer.alarming ? "Hit End to silence alarm" : found.slot.title;
+  els.timerTitle.textContent = timer.alarming
+    ? "Buzzing… tap End to stop · flip silent switch off"
+    : found.slot.title;
   els.timerDisplay.textContent = timer.alarming ? "00:00" : formatMs(timer.remainingMs);
   els.timerPause.textContent = timer.paused || !timer.running ? "Resume" : "Pause";
   els.timerPause.disabled = timer.alarming;
   els.timerSkip.disabled = timer.alarming;
+  els.timerBuzz.classList.toggle("hidden", !timer.alarming);
   els.timerStop.textContent = "End";
+  const actions = els.timerDock.querySelector(".timer-actions");
+  if (actions) actions.classList.toggle("alarm-actions", timer.alarming);
   const pct = timer.alarming
     ? 0
     : timer.totalMs
@@ -321,6 +415,7 @@ function startTimer(dayId, slotId, durationMs) {
   if (!found) return;
   stopAlarm();
   unlockAudio();
+  keepAudioAlive();
   timer.dayId = dayId;
   timer.slotId = slotId;
   timer.totalMs = durationMs;
@@ -360,6 +455,7 @@ function stopTimer() {
   const finishedDayId = timer.dayId;
   const finishedSlotId = timer.slotId;
   stopAlarm();
+  clearAudioKeepAlive();
   timer.running = false;
   timer.paused = false;
   timer.remainingMs = 0;
@@ -847,6 +943,10 @@ function wireEvents() {
   els.nextPlay.addEventListener("click", () => stepViewer(1));
   els.timerPause.addEventListener("click", pauseResumeTimer);
   els.timerSkip.addEventListener("click", skipTimer);
+  els.timerBuzz.addEventListener("click", () => {
+    if (!timer.alarming) return;
+    playAlarmSound();
+  });
   els.timerStop.addEventListener("click", stopTimer);
 
   document.addEventListener("keydown", (e) => {
