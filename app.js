@@ -1010,10 +1010,14 @@ async function registerSW() {
 
 async function boot() {
   setOfflineBadge();
+  const gotToken = typeof captureTokenFromUrl === "function" && captureTokenFromUrl();
   wireEvents();
   try {
     await loadData();
     renderHome();
+    if (gotToken) {
+      alert("Cloud access saved on this phone. Open Call Log → Sync to cloud anytime.");
+    }
   } catch (err) {
     els.app.innerHTML = `<div class="empty">Could not load playbook data. Open this folder with a local server and try again.</div>`;
     console.error(err);

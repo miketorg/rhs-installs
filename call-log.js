@@ -226,6 +226,62 @@ function promptGithubToken() {
   return token.trim() || null;
 }
 
+function getInviteLink(token = getGithubToken()) {
+  if (!token) return "";
+  const url = new URL(window.location.href);
+  url.hash = "";
+  url.search = "";
+  // Keep path to the app root
+  const base = `${url.origin}${url.pathname.replace(/index\.html$/i, "")}`;
+  return `${base}?gh_token=${encodeURIComponent(token)}`;
+}
+
+function captureTokenFromUrl() {
+  try {
+    const url = new URL(window.location.href);
+    const fromQuery = url.searchParams.get("gh_token") || url.searchParams.get("token");
+    let fromHash = "";
+    if (url.hash && url.hash.includes("gh_token=")) {
+      fromHash = decodeURIComponent(url.hash.replace(/^#/, "").split("gh_token=")[1] || "");
+    }
+    const token = (fromQuery || fromHash || "").trim();
+    if (!token) return false;
+    setGithubToken(token);
+    // Remove token from the visible URL
+    url.searchParams.delete("gh_token");
+    url.searchParams.delete("token");
+    url.hash = "";
+    window.history.replaceState({}, "", url.pathname + url.search);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+async function shareInviteLink() {
+  const token = getGithubToken() || promptGithubToken();
+  if (!token) return;
+  const link = getInviteLink(token);
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "RHS Call Log access",
+        text: "Open this once to save cloud sync on your phone.",
+        url: link,
+      });
+      return;
+    } catch (_) {
+      /* fall through to copy */
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(link);
+    alert("Invite link copied. Text/AirDrop it. They open it once and the token is saved.");
+  } catch (_) {
+    window.prompt("Copy this invite link:", link);
+  }
+}
+
 function downloadTokenTemplate() {
   const body = [
     "# Paste your GitHub token on the next line (delete this comment line).",
@@ -415,11 +471,12 @@ function cloudToolbarHtml() {
     <div class="call-toolbar cloud-toolbar">
       <button type="button" id="syncCloudBtn" class="timer-btn">Sync to cloud</button>
       <button type="button" id="pullCloudBtn" class="timer-btn">Pull from cloud</button>
+      <button type="button" id="shareTokenBtn" class="timer-btn">Share access link</button>
       <button type="button" id="loadTokenFileBtn" class="timer-btn">Load token from file</button>
       <button type="button" id="downloadTokenTplBtn" class="timer-btn">Download token file</button>
       <button type="button" id="tokenBtn" class="timer-btn">${hasToken ? "Update token" : "Paste token"}</button>
     </div>
-    <p class="call-cloud-note">Download the blank token file, replace PASTE_TOKEN_HERE with your token, save it in Files, then Load token from file once. Real tokens are never bundled in the app.</p>
+    <p class="call-cloud-note">Easiest for others: tap Share access link → text/AirDrop it → they open once and cloud sync is set. Anyone with the link can sync call logs to your GitHub repo.</p>
   `;
 }
 
@@ -430,6 +487,10 @@ function wireCloudToolbar(after) {
   });
   document.getElementById("pullCloudBtn")?.addEventListener("click", async () => {
     await pullCallsFromCloud();
+    after?.();
+  });
+  document.getElementById("shareTokenBtn")?.addEventListener("click", async () => {
+    await shareInviteLink();
     after?.();
   });
   document.getElementById("loadTokenFileBtn")?.addEventListener("click", async () => {
