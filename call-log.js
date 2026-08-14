@@ -300,6 +300,8 @@ function downloadTokenTemplate() {
   a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 1500);
 }
+
+function loadGithubTokenFromFile() {
   return new Promise((resolve) => {
     const input = document.createElement("input");
     input.type = "file";
