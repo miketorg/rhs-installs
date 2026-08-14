@@ -140,7 +140,12 @@ function csvEscape(value) {
   return s;
 }
 
-function exportGameCsv(gameId) {
+function gameFileBase(gameId) {
+  const game = gameById(gameId);
+  return (game?.name || gameId).replace(/[^a-z0-9]+/gi, "-").toLowerCase() || "calls";
+}
+
+function buildGameCsv(gameId) {
   const game = gameById(gameId);
   const calls = getGameCalls(gameId);
   const rows = [
@@ -155,16 +160,82 @@ function exportGameCsv(gameId) {
       c.audio ? "yes" : "no",
     ]),
   ];
-  const csv = rows.map((r) => r.map(csvEscape).join(",")).join("\n");
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  return rows.map((r) => r.map(csvEscape).join(",")).join("\n");
+}
+
+function buildGameBackupText(gameId) {
+  const game = gameById(gameId);
+  const calls = getGameCalls(gameId);
+  const lines = [
+    `RHS Call Log backup`,
+    `Game: ${game?.name || gameId}`,
+    `Date: ${game?.date || ""}`,
+    `Exported: ${new Date().toISOString()}`,
+    `Calls: ${calls.length}`,
+    "",
+    "play\tplay_name\tspoken_raw\trecorded_at",
+    ...calls.map((c) =>
+      [c.play, callPlayName(c), c.raw || "", c.at].join("\t")
+    ),
+    "",
+  ];
+  return lines.join("\n");
+}
+
+function downloadTextFile(filename, text, mime = "text/plain;charset=utf-8") {
+  const blob = new Blob([text], { type: mime });
   const a = document.createElement("a");
-  const safe = (game?.name || gameId).replace(/[^a-z0-9]+/gi, "-").toLowerCase();
   a.href = URL.createObjectURL(blob);
-  a.download = `${safe || "calls"}-play-log.csv`;
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 1500);
+}
+
+function exportGameCsv(gameId) {
+  downloadTextFile(`${gameFileBase(gameId)}-play-log.csv`, buildGameCsv(gameId), "text/csv;charset=utf-8");
+}
+
+function backupGameTextFile(gameId) {
+  downloadTextFile(`${gameFileBase(gameId)}-call-log-backup.txt`, buildGameBackupText(gameId));
+}
+
+async function textGameCsv(gameId) {
+  const game = gameById(gameId);
+  const csv = buildGameCsv(gameId);
+  const filename = `${gameFileBase(gameId)}-play-log.csv`;
+  const title = `${game?.name || "Call log"} CSV`;
+  const file = new File([csv], filename, { type: "text/csv" });
+
+  if (navigator.share) {
+    try {
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({
+          title,
+          text: `${title} (${getGameCalls(gameId).length} plays)`,
+          files: [file],
+        });
+        return;
+      }
+      await navigator.share({
+        title,
+        text: `${title}\n\n${csv}`,
+      });
+      return;
+    } catch (err) {
+      if (err?.name === "AbortError") return;
+      /* fall through */
+    }
+  }
+
+  try {
+    await navigator.clipboard.writeText(csv);
+    alert("CSV copied. Paste it into a text/Messages thread.\n\nA file download will also start as backup.");
+  } catch (_) {
+    alert("Share not available. Downloading CSV file instead.");
+  }
+  exportGameCsv(gameId);
 }
 
 async function startAudioCapture() {
@@ -761,7 +832,9 @@ function renderCallGame(gameId) {
         <button type="submit" class="timer-start">Add</button>
       </form>
       <div class="call-toolbar">
-        <button type="button" id="exportCsvBtn" class="timer-btn">Export CSV</button>
+        <button type="button" id="backupTxtBtn" class="timer-btn">Backup text</button>
+        <button type="button" id="textCsvBtn" class="timer-btn">Text CSV</button>
+        <button type="button" id="exportCsvBtn" class="timer-btn">Download CSV</button>
         <button type="button" id="clearCallsBtn" class="timer-btn danger">Clear list</button>
       </div>
       ${cloudToolbarHtml("game")}
@@ -782,6 +855,8 @@ function renderCallGame(gameId) {
     input.value = "";
     renderCallGame(gameId);
   });
+  document.getElementById("backupTxtBtn").addEventListener("click", () => backupGameTextFile(gameId));
+  document.getElementById("textCsvBtn").addEventListener("click", () => textGameCsv(gameId));
   document.getElementById("exportCsvBtn").addEventListener("click", () => exportGameCsv(gameId));
   document.getElementById("clearCallsBtn").addEventListener("click", () => {
     if (!getGameCalls(gameId).length) return;
