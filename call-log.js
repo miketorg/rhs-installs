@@ -216,14 +216,62 @@ function setGithubToken(token) {
 }
 
 function promptGithubToken() {
-  const existing = getGithubToken();
-  const token = window.prompt(
-    "Paste a Classic GitHub token (starts with ghp_) with the repo scope for miketorg/rhs-installs.\n\nCreate one: github.com/settings/tokens → Generate new token (classic) → check repo.\n\nToken stays on this phone only.",
-    existing || ""
-  );
-  if (token === null) return null;
-  setGithubToken(token.trim());
-  return token.trim() || null;
+  return new Promise((resolve) => {
+    const existing = document.getElementById("tokenDialog");
+    existing?.remove();
+
+    const dialog = document.createElement("dialog");
+    dialog.id = "tokenDialog";
+    dialog.className = "token-dialog";
+    dialog.innerHTML = `
+      <form method="dialog" class="token-dialog-form">
+        <h2>Cloud token</h2>
+        <p>Paste a Classic GitHub token (<code>ghp_...</code>) with the <strong>repo</strong> scope. It stays on this device only.</p>
+        <textarea id="tokenInput" rows="4" autocomplete="off" spellcheck="false" placeholder="ghp_..."></textarea>
+        <div class="token-dialog-actions">
+          <button type="button" id="tokenPasteClipboardBtn" class="timer-btn">Paste from clipboard</button>
+          <button type="submit" value="save" class="timer-btn primary">Save token</button>
+          <button type="submit" value="cancel" class="timer-btn">Cancel</button>
+        </div>
+      </form>
+    `;
+    document.body.appendChild(dialog);
+
+    const input = dialog.querySelector("#tokenInput");
+    input.value = getGithubToken() || "";
+
+    dialog.querySelector("#tokenPasteClipboardBtn").addEventListener("click", async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text?.trim()) {
+          input.value = text.trim();
+          input.focus();
+        } else {
+          alert("Clipboard was empty. Copy the token first, then try again.");
+        }
+      } catch (_) {
+        input.focus();
+        alert("Clipboard paste blocked. Click in the box and press Ctrl+V (or Cmd+V).");
+      }
+    });
+
+    dialog.addEventListener("close", () => {
+      const ok = dialog.returnValue === "save";
+      const token = String(input.value || "").trim();
+      dialog.remove();
+      if (!ok || !token) {
+        resolve(null);
+        return;
+      }
+      setGithubToken(token);
+      alert("Cloud token saved on this device.");
+      resolve(token);
+    });
+
+    dialog.showModal();
+    input.focus();
+    input.select();
+  });
 }
 
 function getInviteLink(token = getGithubToken()) {
@@ -259,7 +307,7 @@ function captureTokenFromUrl() {
 }
 
 async function shareInviteLink() {
-  const token = getGithubToken() || promptGithubToken();
+  const token = getGithubToken() || (await promptGithubToken());
   if (!token) return;
   const link = getInviteLink(token);
   if (navigator.share) {
@@ -388,7 +436,7 @@ async function ensureGithubToken() {
     "No cloud token saved yet.\n\nOK = Load token from a file\nCancel = Paste token"
   );
   if (choice) token = await loadGithubTokenFromFile();
-  else token = promptGithubToken();
+  else token = await promptGithubToken();
   return token || null;
 }
 
@@ -513,8 +561,8 @@ function wireCloudToolbar(after, mode = "home") {
   document.getElementById("downloadTokenTplBtn")?.addEventListener("click", () => {
     downloadTokenTemplate();
   });
-  document.getElementById("tokenBtn")?.addEventListener("click", () => {
-    promptGithubToken();
+  document.getElementById("tokenBtn")?.addEventListener("click", async () => {
+    await promptGithubToken();
     after?.();
   });
 }
