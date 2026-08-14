@@ -79,6 +79,41 @@ function normalizePlayCall(raw) {
   return s;
 }
 
+/** Strip trailing "-GREEN55 vs 3-4" style suffix from an OCR title. */
+function extractPlayName(title, code) {
+  let t = String(title || "").trim();
+  if (!t) return "";
+  const c = String(code || "").trim();
+  if (c) {
+    t = t.replace(new RegExp(`[-–—]\\s*${c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?:\\s*vs\\s*[\\d\\-]+)?\\s*$`, "i"), "").trim();
+  }
+  t = t.replace(/\s*vs\s*[\d\-]+\s*$/i, "").trim();
+  return t.replace(/^[-–—\s]+|[-–—\s]+$/g, "");
+}
+
+/** Match captured COLOR+NUMBER against install sheets; return play name(s). */
+function lookupPlayName(code) {
+  const key = String(code || "")
+    .toUpperCase()
+    .replace(/\s+/g, "");
+  if (!key || typeof state === "undefined" || !state.data?.plays) return "";
+  const names = [];
+  for (const p of state.data.plays) {
+    const playCode = String(p.play || "")
+      .toUpperCase()
+      .replace(/\s+/g, "");
+    if (playCode !== key) continue;
+    const name = extractPlayName(p.title, p.play);
+    if (name && !names.includes(name)) names.push(name);
+  }
+  return names.join(" / ");
+}
+
+function callPlayName(call) {
+  if (call?.name) return call.name;
+  return lookupPlayName(call?.play);
+}
+
 function formatCallTime(iso) {
   try {
     const d = new Date(iso);
@@ -109,11 +144,12 @@ function exportGameCsv(gameId) {
   const game = gameById(gameId);
   const calls = getGameCalls(gameId);
   const rows = [
-    ["game", "date", "play", "spoken_raw", "recorded_at", "has_audio"],
+    ["game", "date", "play", "play_name", "spoken_raw", "recorded_at", "has_audio"],
     ...calls.map((c) => [
       game?.name || gameId,
       game?.date || "",
       c.play,
+      callPlayName(c),
       c.raw || "",
       c.at,
       c.audio ? "yes" : "no",
@@ -192,6 +228,7 @@ function addCallToGame(gameId, play, raw, audio) {
   calls.unshift({
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
     play,
+    name: lookupPlayName(play),
     raw: raw || play,
     at: new Date().toISOString(),
     audio: audio || null,
@@ -391,6 +428,7 @@ function storeForCloud(store) {
     out[gameId] = (calls || []).map((c) => ({
       id: c.id,
       play: c.play,
+      name: c.name || lookupPlayName(c.play) || "",
       raw: c.raw || "",
       at: c.at,
     }));
@@ -699,6 +737,7 @@ function renderCallGame(gameId) {
       <article class="call-row">
         <div class="call-main">
           <p class="call-play">${c.play}</p>
+          ${callPlayName(c) ? `<p class="call-name">${callPlayName(c)}</p>` : `<p class="call-name missing">No matching install sheet</p>`}
           <p class="call-meta">${formatCallTime(c.at)}${c.raw && c.raw !== c.play ? ` · “${c.raw}”` : ""}</p>
         </div>
         <div class="call-actions">
