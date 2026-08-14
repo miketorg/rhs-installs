@@ -1,4 +1,25 @@
 {
-  "updatedAt": null,
-  "games": {}
+  "updatedAt": "2026-08-14T20:12:51.246Z",
+  "games": {
+    "2026-08-14-practice5": [
+      {
+        "id": "1786738063143-wgfyv",
+        "play": "GREEN55",
+        "raw": "Green 55",
+        "at": "2026-08-14T20:07:43.143Z"
+      },
+      {
+        "id": "1786738054449-gnau2",
+        "play": "BLUE15",
+        "raw": "Blue 15",
+        "at": "2026-08-14T20:07:34.449Z"
+      },
+      {
+        "id": "1786738045289-4thqo",
+        "play": "GREEN1TOO",
+        "raw": "Green one too",
+        "at": "2026-08-14T20:07:25.289Z"
+      }
+    ]
+  }
 }
