@@ -88,7 +88,9 @@
       "page": 2,
       "image": "images/day1/orange1.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE1"
+      "search": "ORANGE1",
+      "title": "A SPLIT RIGHT A ZAP F33 F24 X7 AFLAT B5-ORANGE1 vs 3-4",
+      "searchText": "ORANGE1 ORANGE1 A SPLIT RIGHT A ZAP F33 F24 X7 AFLAT B5 ORANGE1 VS 3 4 DAY1 ORANGE 1"
     },
     {
       "id": "day1-orange2",
@@ -100,7 +102,9 @@
       "page": 3,
       "image": "images/day1/orange2.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE2"
+      "search": "ORANGE2",
+      "title": "A SPLIT RIGHT AUDIBLE (PANCAKE, PUDDING, PEPSI)-ORANGE2 vs 3-4",
+      "searchText": "ORANGE2 ORANGE2 A SPLIT RIGHT AUDIBLE PANCAKE PUDDING PEPSI ORANGE2 VS 3 4 DAY1 ORANGE 2"
     },
     {
       "id": "day1-orange3",
@@ -112,7 +116,9 @@
       "page": 4,
       "image": "images/day1/orange3.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE3"
+      "search": "ORANGE3",
+      "title": "A SPLIT RIGHT A ZIP WIDE F23 AW X1O B FLAT LEFT DELAYED-ORANGE3 vs 3-4",
+      "searchText": "ORANGE3 ORANGE3 A SPLIT RIGHT A ZIP WIDE F23 AW X1O B FLAT LEFT DELAYED ORANGE3 VS 3 4 DAY1 ORANGE 3"
     },
     {
       "id": "day1-orange4",
@@ -124,7 +130,9 @@
       "page": 5,
       "image": "images/day1/orange4.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE4"
+      "search": "ORANGE4",
+      "title": "A SPLIT RIGHT X SPLIT LEFT A ZAP F33 A SMASH LT 16BT X8 Z5 B RT-ORANGE4 vs 3-4",
+      "searchText": "ORANGE4 ORANGE4 A SPLIT RIGHT X SPLIT LEFT A ZAP F33 A SMASH LT 16BT X8 Z5 B RT ORANGE4 VS 3 4 DAY1 ORANGE 4"
     },
     {
       "id": "day1-orange5",
@@ -136,7 +144,9 @@
       "page": 6,
       "image": "images/day1/orange5.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE5"
+      "search": "ORANGE5",
+      "title": "A SPLIT RIGHT B JET LT BW A4-ORANGE5",
+      "searchText": "ORANGE5 ORANGE5 A SPLIT RIGHT B JET LT BW A4 ORANGE5 DAY1 ORANGE 5"
     },
     {
       "id": "day1-orange6",
@@ -148,7 +158,9 @@
       "page": 7,
       "image": "images/day1/orange6.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE6"
+      "search": "ORANGE6",
+      "title": "A SPLIT RIGHT X SPLIT LEFT X9 A9 B FLAT LT Z FLAT RT-ORANGE6 vs 3-4",
+      "searchText": "ORANGE6 ORANGE6 A SPLIT RIGHT X SPLIT LEFT X9 A9 B FLAT LT Z FLAT RT ORANGE6 VS 3 4 DAY1 ORANGE 6"
     },
     {
       "id": "day1-orange8",
@@ -160,7 +172,9 @@
       "page": 8,
       "image": "images/day1/orange8.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE8"
+      "search": "ORANGE8",
+      "title": "",
+      "searchText": "ORANGE8 ORANGE8 DAY1 ORANGE 8"
     },
     {
       "id": "day1-orange9",
@@ -172,7 +186,9 @@
       "page": 9,
       "image": "images/day1/orange9.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE9"
+      "search": "ORANGE9",
+      "title": "A SPLIT LEFT A MONKEY 16 X8 Z5-ORANGE9 vs 3-4",
+      "searchText": "ORANGE9 ORANGE9 A SPLIT LEFT A MONKEY 16 X8 Z5 ORANGE9 VS 3 4 DAY1 ORANGE 9"
     },
     {
       "id": "day1-orange22",
@@ -184,7 +200,9 @@
       "page": 10,
       "image": "images/day1/orange22.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "ORANGE22"
+      "search": "ORANGE22",
+      "title": "MID STACK LEFT A ZAP F34 X8 Z6 BFLAT LEFT DELAYED A FLAT RIGHT DELAYED-ORANGE22",
+      "searchText": "ORANGE22 ORANGE22 MID STACK LEFT A ZAP F34 X8 Z6 BFLAT LEFT DELAYED A FLAT RIGHT DELAYED ORANGE22 DAY1 ORANGE 22"
     },
     {
       "id": "day1-brown26",
@@ -196,7 +214,9 @@
       "page": 11,
       "image": "images/day1/brown26.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "BROWN26"
+      "search": "BROWN26",
+      "title": "STACK LEFT 15 B LEFT A8 X4-BROWN26 vs 3-4",
+      "searchText": "BROWN26 BROWN26 STACK LEFT 15 B LEFT A8 X4 BROWN26 VS 3 4 DAY1 BROWN 26"
     },
     {
       "id": "day1-brown28",
@@ -208,7 +228,9 @@
       "page": 12,
       "image": "images/day1/brown28.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "BROWN28"
+      "search": "BROWN28",
+      "title": "MID STACK LEFT 15 X8 A10 Z DRAG LT B LEFT-BROWN28 vs 3-4",
+      "searchText": "BROWN28 BROWN28 MID STACK LEFT 15 X8 A10 Z DRAG LT B LEFT BROWN28 VS 3 4 DAY1 BROWN 28"
     },
     {
       "id": "day1-brown33",
@@ -220,7 +242,9 @@
       "page": 13,
       "image": "images/day1/brown33.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "BROWN33"
+      "search": "BROWN33",
+      "title": "",
+      "searchText": "BROWN33 BROWN33 DAY1 BROWN 33"
     },
     {
       "id": "day1-brown37",
@@ -232,7 +256,9 @@
       "page": 14,
       "image": "images/day1/brown37.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "BROWN37"
+      "search": "BROWN37",
+      "title": "Z SPLIT RIGHT TIGER RIGHT B JET LEFT BW Z AUDIBLE-BROWN37",
+      "searchText": "BROWN37 BROWN37 Z SPLIT RIGHT TIGER RIGHT B JET LEFT BW Z AUDIBLE BROWN37 DAY1 BROWN 37"
     },
     {
       "id": "day1-brown42",
@@ -244,7 +270,9 @@
       "page": 15,
       "image": "images/day1/brown42.png",
       "pdf": "pdfs/day1.pdf",
-      "search": "BROWN42"
+      "search": "BROWN42",
+      "title": "B TIGER RT A TIGER LT A MONKEY 16 X8 Z5-BROWN42",
+      "searchText": "BROWN42 BROWN42 B TIGER RT A TIGER LT A MONKEY 16 X8 Z5 BROWN42 DAY1 BROWN 42"
     },
     {
       "id": "day2-blue3",
@@ -256,7 +284,9 @@
       "page": 2,
       "image": "images/day2/blue3.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE3"
+      "search": "BLUE3",
+      "title": "A SPLIT RIGHT A ZAP 23 A SMASH LEFT-BLUE3 vs 3-4",
+      "searchText": "BLUE3 BLUE3 A SPLIT RIGHT A ZAP 23 A SMASH LEFT BLUE3 VS 3 4 DAY2 BLUE 3"
     },
     {
       "id": "day2-blue4",
@@ -268,7 +298,9 @@
       "page": 3,
       "image": "images/day2/blue4.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE4"
+      "search": "BLUE4",
+      "title": "A SPLIT RIGHT A ZAP F33 24 DIVE-BLUE4 vs 3-4",
+      "searchText": "BLUE4 BLUE4 A SPLIT RIGHT A ZAP F33 24 DIVE BLUE4 VS 3 4 DAY2 BLUE 4"
     },
     {
       "id": "day2-blue6",
@@ -280,7 +312,9 @@
       "page": 4,
       "image": "images/day2/blue6.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE6"
+      "search": "BLUE6",
+      "title": "A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT-BLUE6 vs 3-4",
+      "searchText": "BLUE6 BLUE6 A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT BLUE6 VS 3 4 DAY2 BLUE 6"
     },
     {
       "id": "day2-blue21",
@@ -292,7 +326,9 @@
       "page": 5,
       "image": "images/day2/blue21.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE21"
+      "search": "BLUE21",
+      "title": "A SPLIT LEFT A MONKEY 36 SWEEP-BLUE21 vs 3-4",
+      "searchText": "BLUE21 BLUE21 A SPLIT LEFT A MONKEY 36 SWEEP BLUE21 VS 3 4 DAY2 BLUE 21"
     },
     {
       "id": "day2-blue7",
@@ -304,7 +340,9 @@
       "page": 6,
       "image": "images/day2/blue7.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE7"
+      "search": "BLUE7",
+      "title": "A SPLIT LEFT A MONKEY F36 41 RG COUNTER LT B RIGHT-BLUE7 vs 3-4",
+      "searchText": "BLUE7 BLUE7 A SPLIT LEFT A MONKEY F36 41 RG COUNTER LT B RIGHT BLUE7 VS 3 4 DAY2 BLUE 7"
     },
     {
       "id": "day2-blue9",
@@ -316,7 +354,9 @@
       "page": 7,
       "image": "images/day2/blue9.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE9"
+      "search": "BLUE9",
+      "title": "A SPLIT RIGHT A MONKEY VEER LEFT-BLUE9 vs 3-4",
+      "searchText": "BLUE9 BLUE9 A SPLIT RIGHT A MONKEY VEER LEFT BLUE9 VS 3 4 DAY2 BLUE 9"
     },
     {
       "id": "day2-blue10",
@@ -328,7 +368,9 @@
       "page": 8,
       "image": "images/day2/blue10.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE10"
+      "search": "BLUE10",
+      "title": "A SPLIT RIGHT A MONKEY 35 SWEEP-BLUE10 vs 3-4",
+      "searchText": "BLUE10 BLUE10 A SPLIT RIGHT A MONKEY 35 SWEEP BLUE10 VS 3 4 DAY2 BLUE 10"
     },
     {
       "id": "day2-blue11",
@@ -340,7 +382,9 @@
       "page": 9,
       "image": "images/day2/blue11.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE11"
+      "search": "BLUE11",
+      "title": "",
+      "searchText": "BLUE11 BLUE11 DAY2 BLUE 11"
     },
     {
       "id": "day2-blue13",
@@ -352,7 +396,9 @@
       "page": 10,
       "image": "images/day2/blue13.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE13"
+      "search": "BLUE13",
+      "title": "A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 (B, LG) DBLE COUNTER RT-BLUE13 vs 3-4",
+      "searchText": "BLUE13 BLUE13 A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 B LG DBLE COUNTER RT BLUE13 VS 3 4 DAY2 BLUE 13"
     },
     {
       "id": "day2-blue20",
@@ -364,7 +410,9 @@
       "page": 11,
       "image": "images/day2/blue20.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE20"
+      "search": "BLUE20",
+      "title": "A SPLIT LEFT A MONKEY VEER RIGHT-BLUE20 vs 3-4",
+      "searchText": "BLUE20 BLUE20 A SPLIT LEFT A MONKEY VEER RIGHT BLUE20 VS 3 4 DAY2 BLUE 20"
     },
     {
       "id": "day2-blue22",
@@ -376,7 +424,9 @@
       "page": 12,
       "image": "images/day2/blue22.png",
       "pdf": "pdfs/day2.pdf",
-      "search": "BLUE22"
+      "search": "BLUE22",
+      "title": "A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT-BLUE22 vs 3-4",
+      "searchText": "BLUE22 BLUE22 A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT BLUE22 VS 3 4 DAY2 BLUE 22"
     },
     {
       "id": "day3-orange1",
@@ -388,7 +438,9 @@
       "page": 2,
       "image": "images/day3/orange1.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE1"
+      "search": "ORANGE1",
+      "title": "A SPLIT RIGHT A ZAP F33 F24 X7 AFLAT B5-ORANGE1 vs 3-4",
+      "searchText": "ORANGE1 ORANGE1 A SPLIT RIGHT A ZAP F33 F24 X7 AFLAT B5 ORANGE1 VS 3 4 DAY3 5V5 ORANGE 1"
     },
     {
       "id": "day3-orange2",
@@ -400,7 +452,9 @@
       "page": 3,
       "image": "images/day3/orange2.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE2"
+      "search": "ORANGE2",
+      "title": "A SPLIT RIGHT AUDIBLE (PANCAKE, PUDDING, PEPSI)-ORANGE2 vs 3-4",
+      "searchText": "ORANGE2 ORANGE2 A SPLIT RIGHT AUDIBLE PANCAKE PUDDING PEPSI ORANGE2 VS 3 4 DAY3 5V5 ORANGE 2"
     },
     {
       "id": "day3-orange3",
@@ -412,7 +466,9 @@
       "page": 4,
       "image": "images/day3/orange3.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE3"
+      "search": "ORANGE3",
+      "title": "A SPLIT RIGHT A ZIP WIDE F23 AW X1O B FLAT LEFT DELAYED-ORANGE3 vs 3-4",
+      "searchText": "ORANGE3 ORANGE3 A SPLIT RIGHT A ZIP WIDE F23 AW X1O B FLAT LEFT DELAYED ORANGE3 VS 3 4 DAY3 5V5 ORANGE 3"
     },
     {
       "id": "day3-orange4",
@@ -424,7 +480,9 @@
       "page": 5,
       "image": "images/day3/orange4.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE4"
+      "search": "ORANGE4",
+      "title": "A SPLIT RIGHT X SPLIT LEFT A ZAP F33 A SMASH LT 16BT X8 Z5 B RT-ORANGE4 vs 3-4",
+      "searchText": "ORANGE4 ORANGE4 A SPLIT RIGHT X SPLIT LEFT A ZAP F33 A SMASH LT 16BT X8 Z5 B RT ORANGE4 VS 3 4 DAY3 5V5 ORANGE 4"
     },
     {
       "id": "day3-orange5",
@@ -436,7 +494,9 @@
       "page": 6,
       "image": "images/day3/orange5.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE5"
+      "search": "ORANGE5",
+      "title": "A SPLIT RIGHT B JET LT BW A4-ORANGE5",
+      "searchText": "ORANGE5 ORANGE5 A SPLIT RIGHT B JET LT BW A4 ORANGE5 DAY3 5V5 ORANGE 5"
     },
     {
       "id": "day3-orange6",
@@ -448,7 +508,9 @@
       "page": 7,
       "image": "images/day3/orange6.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE6"
+      "search": "ORANGE6",
+      "title": "A SPLIT RIGHT X SPLIT LEFT X9 A9 B FLAT LT Z FLAT RT-ORANGE6 vs 3-4",
+      "searchText": "ORANGE6 ORANGE6 A SPLIT RIGHT X SPLIT LEFT X9 A9 B FLAT LT Z FLAT RT ORANGE6 VS 3 4 DAY3 5V5 ORANGE 6"
     },
     {
       "id": "day3-orange8",
@@ -460,7 +522,9 @@
       "page": 8,
       "image": "images/day3/orange8.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE8"
+      "search": "ORANGE8",
+      "title": "",
+      "searchText": "ORANGE8 ORANGE8 DAY3 5V5 ORANGE 8"
     },
     {
       "id": "day3-orange9",
@@ -472,7 +536,9 @@
       "page": 9,
       "image": "images/day3/orange9.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE9"
+      "search": "ORANGE9",
+      "title": "A SPLIT LEFT A MONKEY 16 X8 Z5-ORANGE9 vs 3-4",
+      "searchText": "ORANGE9 ORANGE9 A SPLIT LEFT A MONKEY 16 X8 Z5 ORANGE9 VS 3 4 DAY3 5V5 ORANGE 9"
     },
     {
       "id": "day3-orange22",
@@ -484,7 +550,9 @@
       "page": 10,
       "image": "images/day3/orange22.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "ORANGE22"
+      "search": "ORANGE22",
+      "title": "MID STACK LEFT A ZAP F34 X8 Z6 BFLAT LEFT DELAYED A FLAT RIGHT DELAYED-ORANGE22",
+      "searchText": "ORANGE22 ORANGE22 MID STACK LEFT A ZAP F34 X8 Z6 BFLAT LEFT DELAYED A FLAT RIGHT DELAYED ORANGE22 DAY3 5V5 ORANGE 22"
     },
     {
       "id": "day3-brown26",
@@ -496,7 +564,9 @@
       "page": 11,
       "image": "images/day3/brown26.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "BROWN26"
+      "search": "BROWN26",
+      "title": "STACK LEFT 15 B LEFT A8 X4-BROWN26 vs 3-4",
+      "searchText": "BROWN26 BROWN26 STACK LEFT 15 B LEFT A8 X4 BROWN26 VS 3 4 DAY3 5V5 BROWN 26"
     },
     {
       "id": "day3-brown28",
@@ -508,7 +578,9 @@
       "page": 12,
       "image": "images/day3/brown28.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "BROWN28"
+      "search": "BROWN28",
+      "title": "MID STACK LEFT 15 X8 A10 Z DRAG LT B LEFT-BROWN28 vs 3-4",
+      "searchText": "BROWN28 BROWN28 MID STACK LEFT 15 X8 A10 Z DRAG LT B LEFT BROWN28 VS 3 4 DAY3 5V5 BROWN 28"
     },
     {
       "id": "day3-brown33",
@@ -520,7 +592,9 @@
       "page": 13,
       "image": "images/day3/brown33.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "BROWN33"
+      "search": "BROWN33",
+      "title": "",
+      "searchText": "BROWN33 BROWN33 DAY3 5V5 BROWN 33"
     },
     {
       "id": "day3-brown37",
@@ -532,7 +606,9 @@
       "page": 14,
       "image": "images/day3/brown37.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "BROWN37"
+      "search": "BROWN37",
+      "title": "Z SPLIT RIGHT TIGER RIGHT B JET LEFT BW Z AUDIBLE-BROWN37",
+      "searchText": "BROWN37 BROWN37 Z SPLIT RIGHT TIGER RIGHT B JET LEFT BW Z AUDIBLE BROWN37 DAY3 5V5 BROWN 37"
     },
     {
       "id": "day3-brown42",
@@ -544,7 +620,9 @@
       "page": 15,
       "image": "images/day3/brown42.png",
       "pdf": "pdfs/day3.pdf",
-      "search": "BROWN42"
+      "search": "BROWN42",
+      "title": "B TIGER RT A TIGER LT A MONKEY 16 X8 Z5-BROWN42",
+      "searchText": "BROWN42 BROWN42 B TIGER RT A TIGER LT A MONKEY 16 X8 Z5 BROWN42 DAY3 5V5 BROWN 42"
     },
     {
       "id": "motions-passingtree",
@@ -556,8 +634,10 @@
       "page": 2,
       "image": "images/motions/passingtree.png",
       "pdf": "pdfs/motions.pdf",
-      "search": "PASSINGTREEROUTESODDSEVENINOUTSLSRPOPMSWFLATWAGLE",
-      "note": "Routes \u00b7 odds out, even in"
+      "search": "PASSINGTREE",
+      "note": "Routes \u00b7 odds out, even in",
+      "title": "Vs 2026",
+      "searchText": "PASSING TREE PASSINGTREEROUTESODDSEVENINOUTSLSRPOPMSWFLATWAGLE VS 2026 PASSING TREE MOTIONS TREE 1"
     },
     {
       "id": "motions-motions",
@@ -569,8 +649,10 @@
       "page": 3,
       "image": "images/motions/motions.png",
       "pdf": "pdfs/motions.pdf",
-      "search": "MOTIONSZIPZAPSHORTZIPJETMONKEYSZIPMONKY",
-      "note": "Zip Zap Jet Monkey"
+      "search": "MOTIONS",
+      "note": "Zip Zap Jet Monkey",
+      "title": "VSAIR",
+      "searchText": "MOTIONS MOTIONSZIPZAPSHORTZIPJETMONKEYSZIPMONKY VSAIR PASSING TREE MOTIONS MOTION 2"
     },
     {
       "id": "motions-motions2",
@@ -582,8 +664,10 @@
       "page": 4,
       "image": "images/motions/motions2.png",
       "pdf": "pdfs/motions.pdf",
-      "search": "MOTIONSZIPZAPSHORTZIPJETMONKEYSZIPMONKY",
-      "note": "Zip Zap Jet Monkey"
+      "search": "MOTIONS2",
+      "note": "Zip Zap Jet Monkey",
+      "title": "VS AIR",
+      "searchText": "MOTIONS 2 MOTIONSZIPZAPSHORTZIPJETMONKEYSZIPMONKY VS AIR PASSING TREE MOTIONS MOTION 3"
     },
     {
       "id": "day3teamo-blue3",
@@ -595,7 +679,9 @@
       "page": 2,
       "image": "images/day3teamo/blue3.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE3"
+      "search": "BLUE3",
+      "title": "A SPLIT RIGHT A ZAP 23 A SMASH LEFT-BLUE3 vs 3-4",
+      "searchText": "BLUE3 BLUE3 A SPLIT RIGHT A ZAP 23 A SMASH LEFT BLUE3 VS 3 4 DAY3 TEAM O BLUE 3"
     },
     {
       "id": "day3teamo-blue4",
@@ -607,7 +693,9 @@
       "page": 3,
       "image": "images/day3teamo/blue4.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE4"
+      "search": "BLUE4",
+      "title": "A SPLIT RIGHT A ZAP F33 24 DIVE-BLUE4 vs 3-4",
+      "searchText": "BLUE4 BLUE4 A SPLIT RIGHT A ZAP F33 24 DIVE BLUE4 VS 3 4 DAY3 TEAM O BLUE 4"
     },
     {
       "id": "day3teamo-blue6",
@@ -619,7 +707,9 @@
       "page": 4,
       "image": "images/day3teamo/blue6.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE6"
+      "search": "BLUE6",
+      "title": "A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT-BLUE6 vs 3-4",
+      "searchText": "BLUE6 BLUE6 A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT BLUE6 VS 3 4 DAY3 TEAM O BLUE 6"
     },
     {
       "id": "day3teamo-blue21",
@@ -631,7 +721,9 @@
       "page": 5,
       "image": "images/day3teamo/blue21.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE21"
+      "search": "BLUE21",
+      "title": "A SPLIT LEFT A MONKEY 36 SWEEP-BLUE21 vs 3-4",
+      "searchText": "BLUE21 BLUE21 A SPLIT LEFT A MONKEY 36 SWEEP BLUE21 VS 3 4 DAY3 TEAM O BLUE 21"
     },
     {
       "id": "day3teamo-blue7",
@@ -643,7 +735,9 @@
       "page": 6,
       "image": "images/day3teamo/blue7.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE7"
+      "search": "BLUE7",
+      "title": "A SPLIT LEFT A MONKEY F36 41 RG COUNTER LT B RIGHT-BLUE7 vs 3-4",
+      "searchText": "BLUE7 BLUE7 A SPLIT LEFT A MONKEY F36 41 RG COUNTER LT B RIGHT BLUE7 VS 3 4 DAY3 TEAM O BLUE 7"
     },
     {
       "id": "day3teamo-blue9",
@@ -655,7 +749,9 @@
       "page": 7,
       "image": "images/day3teamo/blue9.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE9"
+      "search": "BLUE9",
+      "title": "A SPLIT RIGHT A MONKEY VEER LEFT-BLUE9 vs 3-4",
+      "searchText": "BLUE9 BLUE9 A SPLIT RIGHT A MONKEY VEER LEFT BLUE9 VS 3 4 DAY3 TEAM O BLUE 9"
     },
     {
       "id": "day3teamo-blue10",
@@ -667,7 +763,9 @@
       "page": 8,
       "image": "images/day3teamo/blue10.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE10"
+      "search": "BLUE10",
+      "title": "A SPLIT RIGHT A MONKEY 35 SWEEP-BLUE10 vs 3-4",
+      "searchText": "BLUE10 BLUE10 A SPLIT RIGHT A MONKEY 35 SWEEP BLUE10 VS 3 4 DAY3 TEAM O BLUE 10"
     },
     {
       "id": "day3teamo-blue11",
@@ -679,7 +777,9 @@
       "page": 9,
       "image": "images/day3teamo/blue11.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE11"
+      "search": "BLUE11",
+      "title": "",
+      "searchText": "BLUE11 BLUE11 DAY3 TEAM O BLUE 11"
     },
     {
       "id": "day3teamo-blue13",
@@ -691,7 +791,9 @@
       "page": 10,
       "image": "images/day3teamo/blue13.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE13"
+      "search": "BLUE13",
+      "title": "A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 (B, LG) DBLE COUNTER RT-BLUE13 vs 3-4",
+      "searchText": "BLUE13 BLUE13 A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 B LG DBLE COUNTER RT BLUE13 VS 3 4 DAY3 TEAM O BLUE 13"
     },
     {
       "id": "day3teamo-blue20",
@@ -703,7 +805,9 @@
       "page": 11,
       "image": "images/day3teamo/blue20.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE20"
+      "search": "BLUE20",
+      "title": "A SPLIT LEFT A MONKEY VEER RIGHT-BLUE20 vs 3-4",
+      "searchText": "BLUE20 BLUE20 A SPLIT LEFT A MONKEY VEER RIGHT BLUE20 VS 3 4 DAY3 TEAM O BLUE 20"
     },
     {
       "id": "day3teamo-blue22",
@@ -715,7 +819,9 @@
       "page": 12,
       "image": "images/day3teamo/blue22.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "BLUE22"
+      "search": "BLUE22",
+      "title": "A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT-BLUE22 vs 3-4",
+      "searchText": "BLUE22 BLUE22 A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT BLUE22 VS 3 4 DAY3 TEAM O BLUE 22"
     },
     {
       "id": "day3teamo-pink23",
@@ -727,7 +833,9 @@
       "page": 13,
       "image": "images/day3teamo/pink23.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK23"
+      "search": "PINK23",
+      "title": "A SPLIT LEFT A MONKEY 35 SWEEP-PINK23 vs 3-4",
+      "searchText": "PINK23 PINK23 A SPLIT LEFT A MONKEY 35 SWEEP PINK23 VS 3 4 DAY3 TEAM O PINK 23"
     },
     {
       "id": "day3teamo-pink27",
@@ -739,7 +847,9 @@
       "page": 14,
       "image": "images/day3teamo/pink27.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK27"
+      "search": "PINK27",
+      "title": "/VS3-4",
+      "searchText": "PINK27 PINK27 VS3 4 DAY3 TEAM O PINK 27"
     },
     {
       "id": "day3teamo-pink28",
@@ -751,7 +861,9 @@
       "page": 15,
       "image": "images/day3teamo/pink28.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK28"
+      "search": "PINK28",
+      "title": "STACK LEFT Z SPLIT RIGHT 22 QB OPTION RT-PINK28 vs 3-4",
+      "searchText": "PINK28 PINK28 STACK LEFT Z SPLIT RIGHT 22 QB OPTION RT PINK28 VS 3 4 DAY3 TEAM O PINK 28"
     },
     {
       "id": "day3teamo-pink30",
@@ -763,7 +875,9 @@
       "page": 16,
       "image": "images/day3teamo/pink30.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK30"
+      "search": "PINK30",
+      "title": "I 33 LEAD-PINK30",
+      "searchText": "PINK30 PINK30 I 33 LEAD PINK30 DAY3 TEAM O PINK 30"
     },
     {
       "id": "day3teamo-pink31",
@@ -775,7 +889,9 @@
       "page": 17,
       "image": "images/day3teamo/pink31.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK31"
+      "search": "PINK31",
+      "title": "I 34 LEAD-PINK31 vs 3-4",
+      "searchText": "PINK31 PINK31 I 34 LEAD PINK31 VS 3 4 DAY3 TEAM O PINK 31"
     },
     {
       "id": "day3teamo-pink32",
@@ -787,7 +903,9 @@
       "page": 18,
       "image": "images/day3teamo/pink32.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK32"
+      "search": "PINK32",
+      "title": "I RIGHT 34 LEAD-PINK32",
+      "searchText": "PINK32 PINK32 I RIGHT 34 LEAD PINK32 DAY3 TEAM O PINK 32"
     },
     {
       "id": "day3teamo-pink33",
@@ -799,7 +917,9 @@
       "page": 19,
       "image": "images/day3teamo/pink33.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK33"
+      "search": "PINK33",
+      "title": "I LEFT 33 LEAD-PINK33 vs 3-4",
+      "searchText": "PINK33 PINK33 I LEFT 33 LEAD PINK33 VS 3 4 DAY3 TEAM O PINK 33"
     },
     {
       "id": "day3teamo-pink34",
@@ -811,7 +931,9 @@
       "page": 20,
       "image": "images/day3teamo/pink34.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK34"
+      "search": "PINK34",
+      "title": "I RIGHT 33 RG COUNTER LT-PINK34 vs 3-4",
+      "searchText": "PINK34 PINK34 I RIGHT 33 RG COUNTER LT PINK34 VS 3 4 DAY3 TEAM O PINK 34"
     },
     {
       "id": "day3teamo-pink35",
@@ -823,7 +945,9 @@
       "page": 21,
       "image": "images/day3teamo/pink35.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK35"
+      "search": "PINK35",
+      "title": "I LEFT 34 LG COUNTER RIGHT-PINK35 vs 3-4",
+      "searchText": "PINK35 PINK35 I LEFT 34 LG COUNTER RIGHT PINK35 VS 3 4 DAY3 TEAM O PINK 35"
     },
     {
       "id": "day3teamo-pink36",
@@ -835,7 +959,9 @@
       "page": 22,
       "image": "images/day3teamo/pink36.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK36"
+      "search": "PINK36",
+      "title": "I RIGHT 16 SWEEP-PINK36 vs 3-4",
+      "searchText": "PINK36 PINK36 I RIGHT 16 SWEEP PINK36 VS 3 4 DAY3 TEAM O PINK 36"
     },
     {
       "id": "day3teamo-pink37",
@@ -847,7 +973,9 @@
       "page": 23,
       "image": "images/day3teamo/pink37.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "PINK37"
+      "search": "PINK37",
+      "title": "I RIGHT F33 14 (X, RG) DBLE COUNTER RT-PINK37 vs 3-4",
+      "searchText": "PINK37 PINK37 I RIGHT F33 14 X RG DBLE COUNTER RT PINK37 VS 3 4 DAY3 TEAM O PINK 37"
     },
     {
       "id": "day3teamo-green45",
@@ -859,7 +987,9 @@
       "page": 24,
       "image": "images/day3teamo/green45.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "GREEN45"
+      "search": "GREEN45",
+      "title": "TIGER LEFT A MONKEY VEER RIGHT-GREEN45 vs 3-4",
+      "searchText": "GREEN45 GREEN45 TIGER LEFT A MONKEY VEER RIGHT GREEN45 VS 3 4 DAY3 TEAM O GREEN 45"
     },
     {
       "id": "day3teamo-green46",
@@ -871,7 +1001,9 @@
       "page": 25,
       "image": "images/day3teamo/green46.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "GREEN46"
+      "search": "GREEN46",
+      "title": "TIGER LEFT A MONKEY 16 SWEEP-GREEN46",
+      "searchText": "GREEN46 GREEN46 TIGER LEFT A MONKEY 16 SWEEP GREEN46 DAY3 TEAM O GREEN 46"
     },
     {
       "id": "day3teamo-green50",
@@ -883,7 +1015,9 @@
       "page": 26,
       "image": "images/day3teamo/green50.png",
       "pdf": "pdfs/day3teamo.pdf",
-      "search": "GREEN50"
+      "search": "GREEN50",
+      "title": "I LEFT 15 SWEEP-GREEN50 vs 3-4",
+      "searchText": "GREEN50 GREEN50 I LEFT 15 SWEEP GREEN50 VS 3 4 DAY3 TEAM O GREEN 50"
     },
     {
       "id": "day4groupo34-green53",
@@ -896,7 +1030,9 @@
       "image": "images/day4groupo/green53.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN53",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I LEFT 34 DOWN RIGHT-GREEN53 vs 3-4",
+      "searchText": "GREEN53 GREEN53 I LEFT 34 DOWN RIGHT GREEN53 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 53"
     },
     {
       "id": "day4groupo44-green53",
@@ -909,7 +1045,9 @@
       "image": "images/day4groupo/green53_p3.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN53",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I LEFT 34 DOWN RIGHT-GREEN53 vs 4-4",
+      "searchText": "GREEN53 GREEN53 I LEFT 34 DOWN RIGHT GREEN53 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 53"
     },
     {
       "id": "day4groupo34-green54",
@@ -922,7 +1060,9 @@
       "image": "images/day4groupo/green54.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN54",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I RIGHT 33 DOWN LEFT-GREEN54 vs 3-4",
+      "searchText": "GREEN54 GREEN54 I RIGHT 33 DOWN LEFT GREEN54 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 54"
     },
     {
       "id": "day4groupo44-green54",
@@ -935,7 +1075,9 @@
       "image": "images/day4groupo/green54_p5.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN54",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I RIGHT 33 DOWN LEFT-GREEN54 vs 4-4",
+      "searchText": "GREEN54 GREEN54 I RIGHT 33 DOWN LEFT GREEN54 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 54"
     },
     {
       "id": "day4groupo34-green55",
@@ -948,7 +1090,9 @@
       "image": "images/day4groupo/green55.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN55",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I LEFT 14 DOWN RIGHT-GREEN55 vs 3-4",
+      "searchText": "GREEN55 GREEN55 I LEFT 14 DOWN RIGHT GREEN55 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 55"
     },
     {
       "id": "day4groupo44-green55",
@@ -961,7 +1105,9 @@
       "image": "images/day4groupo/green55_p7.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN55",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I LEFT 14 DOWN RIGHT-GREEN55",
+      "searchText": "GREEN55 GREEN55 I LEFT 14 DOWN RIGHT GREEN55 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 55"
     },
     {
       "id": "day4groupo34-blue3",
@@ -974,7 +1120,9 @@
       "image": "images/day4groupo/blue3.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE3",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT RIGHT A ZAP 23 A SMASH LEFT-BLUE3 vs 3-4",
+      "searchText": "BLUE3 BLUE3 A SPLIT RIGHT A ZAP 23 A SMASH LEFT BLUE3 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 3"
     },
     {
       "id": "day4groupo44-blue3",
@@ -987,7 +1135,9 @@
       "image": "images/day4groupo/blue3_p10.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE3",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT RIGHT A ZAP 23 A SMASH LEFT-BLUE3 vs 4-4",
+      "searchText": "BLUE3 BLUE3 A SPLIT RIGHT A ZAP 23 A SMASH LEFT BLUE3 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 3"
     },
     {
       "id": "day4groupo34-blue4",
@@ -1000,7 +1150,9 @@
       "image": "images/day4groupo/blue4.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE4",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT RIGHT A ZAP F33 24 DIVE-BLUE4 vs 3-4",
+      "searchText": "BLUE4 BLUE4 A SPLIT RIGHT A ZAP F33 24 DIVE BLUE4 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 4"
     },
     {
       "id": "day4groupo44-blue4",
@@ -1013,7 +1165,9 @@
       "image": "images/day4groupo/blue4_p12.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE4",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT RIGHT A ZAP F33 24 DIVE-BLUE4 vs 4-4",
+      "searchText": "BLUE4 BLUE4 A SPLIT RIGHT A ZAP F33 24 DIVE BLUE4 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 4"
     },
     {
       "id": "day4groupo34-blue6",
@@ -1026,7 +1180,9 @@
       "image": "images/day4groupo/blue6.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE6",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT-BLUE6 vs 3-4",
+      "searchText": "BLUE6 BLUE6 A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT BLUE6 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 6"
     },
     {
       "id": "day4groupo44-blue6",
@@ -1039,7 +1195,9 @@
       "image": "images/day4groupo/blue6_p14.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE6",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT-BLUE6 vs 4-4",
+      "searchText": "BLUE6 BLUE6 A SPLIT RIGHT A ZAP F33 F24 14 LG COUNTER RIGHT BLUE6 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 6"
     },
     {
       "id": "day4groupo34-blue7",
@@ -1052,7 +1210,9 @@
       "image": "images/day4groupo/blue7.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE7",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT LEFT A MONKEY F36 41 RG COUNTER LT B RIGHT-BLUE7 vs 3-4",
+      "searchText": "BLUE7 BLUE7 A SPLIT LEFT A MONKEY F36 41 RG COUNTER LT B RIGHT BLUE7 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 7"
     },
     {
       "id": "day4groupo44-blue7",
@@ -1065,7 +1225,9 @@
       "image": "images/day4groupo/blue7_p16.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE7",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "/VS4-4",
+      "searchText": "BLUE7 BLUE7 VS4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 7"
     },
     {
       "id": "day4groupo34-blue9",
@@ -1078,7 +1240,9 @@
       "image": "images/day4groupo/blue9.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE9",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT RIGHT A MONKEY VEER LEFT-BLUE9 vs 3-4",
+      "searchText": "BLUE9 BLUE9 A SPLIT RIGHT A MONKEY VEER LEFT BLUE9 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 9"
     },
     {
       "id": "day4groupo44-blue9",
@@ -1091,7 +1255,9 @@
       "image": "images/day4groupo/blue9_p18.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE9",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT RIGHT A MONKEY VEER LEFT-BLUE9 vs 4-4",
+      "searchText": "BLUE9 BLUE9 A SPLIT RIGHT A MONKEY VEER LEFT BLUE9 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 9"
     },
     {
       "id": "day4groupo34-blue10",
@@ -1104,7 +1270,9 @@
       "image": "images/day4groupo/blue10.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE10",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT RIGHT A MONKEY 35 SWEEP-BLUE10 vs 3-4",
+      "searchText": "BLUE10 BLUE10 A SPLIT RIGHT A MONKEY 35 SWEEP BLUE10 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 10"
     },
     {
       "id": "day4groupo44-blue10",
@@ -1117,7 +1285,9 @@
       "image": "images/day4groupo/blue10_p20.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE10",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT RIGHT A MONKEY 35 SWEEP-BLUE10 vs 4-4",
+      "searchText": "BLUE10 BLUE10 A SPLIT RIGHT A MONKEY 35 SWEEP BLUE10 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 10"
     },
     {
       "id": "day4groupo34-blue11",
@@ -1130,7 +1300,9 @@
       "image": "images/day4groupo/blue11.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE11",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "",
+      "searchText": "BLUE11 BLUE11 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 11"
     },
     {
       "id": "day4groupo44-blue11",
@@ -1143,7 +1315,9 @@
       "image": "images/day4groupo/blue11_p22.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE11",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "",
+      "searchText": "BLUE11 BLUE11 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 11"
     },
     {
       "id": "day4groupo34-blue13",
@@ -1156,7 +1330,9 @@
       "image": "images/day4groupo/blue13.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE13",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 (B, LG) DBLE COUNTER RT-BLUE13 vs 3-4",
+      "searchText": "BLUE13 BLUE13 A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 B LG DBLE COUNTER RT BLUE13 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 13"
     },
     {
       "id": "day4groupo44-blue13",
@@ -1169,7 +1345,9 @@
       "image": "images/day4groupo/blue13_p24.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE13",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 (B, LG) DBLE COUNTER RT-BLUE13 vs 4-4",
+      "searchText": "BLUE13 BLUE13 A SPLIT RIGHT B TIGER LEFT A MNKY F35 14 B LG DBLE COUNTER RT BLUE13 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 13"
     },
     {
       "id": "day4groupo34-blue20",
@@ -1182,7 +1360,9 @@
       "image": "images/day4groupo/blue20.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE20",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT LEFT A MONKEY VEER RIGHT-BLUE20 vs 3-4",
+      "searchText": "BLUE20 BLUE20 A SPLIT LEFT A MONKEY VEER RIGHT BLUE20 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 20"
     },
     {
       "id": "day4groupo44-blue20",
@@ -1195,7 +1375,9 @@
       "image": "images/day4groupo/blue20_p26.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE20",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT LEFT A MONKEY VEER RIGHT-BLUE20 vs 4-4",
+      "searchText": "BLUE20 BLUE20 A SPLIT LEFT A MONKEY VEER RIGHT BLUE20 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 20"
     },
     {
       "id": "day4groupo34-blue21",
@@ -1208,7 +1390,9 @@
       "image": "images/day4groupo/blue21.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE21",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT LEFT A MONKEY 36 SWEEP-BLUE21 vs 3-4",
+      "searchText": "BLUE21 BLUE21 A SPLIT LEFT A MONKEY 36 SWEEP BLUE21 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 21"
     },
     {
       "id": "day4groupo44-blue21",
@@ -1221,7 +1405,9 @@
       "image": "images/day4groupo/blue21_p28.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE21",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT LEFT A MONKEY 36 SWEEP-BLUE21 vs 4-4",
+      "searchText": "BLUE21 BLUE21 A SPLIT LEFT A MONKEY 36 SWEEP BLUE21 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 21"
     },
     {
       "id": "day4groupo34-blue22",
@@ -1234,7 +1420,9 @@
       "image": "images/day4groupo/blue22.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE22",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT-BLUE22 vs 3-4",
+      "searchText": "BLUE22 BLUE22 A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT BLUE22 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 BLUE 22"
     },
     {
       "id": "day4groupo44-blue22",
@@ -1247,7 +1435,9 @@
       "image": "images/day4groupo/blue22_p30.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "BLUE22",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT-BLUE22",
+      "searchText": "BLUE22 BLUE22 A SPLIT LEFT A MONKEY F36 23 RG COUNTER LT BLUE22 DAY4 GROUP TEAM O VS 4 4 4 4 BLUE 22"
     },
     {
       "id": "day4groupo34-pink23",
@@ -1260,7 +1450,9 @@
       "image": "images/day4groupo/pink23.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK23",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "A SPLIT LEFT A MONKEY 35 SWEEP-PINK23 vs 3-4",
+      "searchText": "PINK23 PINK23 A SPLIT LEFT A MONKEY 35 SWEEP PINK23 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 23"
     },
     {
       "id": "day4groupo44-pink23",
@@ -1273,7 +1465,9 @@
       "image": "images/day4groupo/pink23_p32.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK23",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "A SPLIT LEFT A MONKEY 35 SWEEP-PINK23 vs 4-4",
+      "searchText": "PINK23 PINK23 A SPLIT LEFT A MONKEY 35 SWEEP PINK23 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 23"
     },
     {
       "id": "day4groupo34-pink27",
@@ -1286,7 +1480,9 @@
       "image": "images/day4groupo/pink27.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK27",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "/VS3-4",
+      "searchText": "PINK27 PINK27 VS3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 27"
     },
     {
       "id": "day4groupo44-pink27",
@@ -1299,7 +1495,9 @@
       "image": "images/day4groupo/pink27_p34.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK27",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "/VS4-4",
+      "searchText": "PINK27 PINK27 VS4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 27"
     },
     {
       "id": "day4groupo34-pink28",
@@ -1312,7 +1510,9 @@
       "image": "images/day4groupo/pink28.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK28",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "STACK LEFT Z SPLIT RIGHT 22 QB OPTION RT-PINK28 vs 3-4",
+      "searchText": "PINK28 PINK28 STACK LEFT Z SPLIT RIGHT 22 QB OPTION RT PINK28 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 28"
     },
     {
       "id": "day4groupo44-pink28",
@@ -1325,7 +1525,9 @@
       "image": "images/day4groupo/pink28_p36.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK28",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "STACK LEFT Z SPLIT RIGHT 22 QB OPTION RT-PINK28 vs 4-4",
+      "searchText": "PINK28 PINK28 STACK LEFT Z SPLIT RIGHT 22 QB OPTION RT PINK28 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 28"
     },
     {
       "id": "day4groupo34-pink30",
@@ -1338,7 +1540,9 @@
       "image": "images/day4groupo/pink30.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK30",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I 33 LEAD-PINK30",
+      "searchText": "PINK30 PINK30 I 33 LEAD PINK30 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 30"
     },
     {
       "id": "day4groupo44-pink30",
@@ -1351,7 +1555,9 @@
       "image": "images/day4groupo/pink30_p38.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK30",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I 33 LEAD-PINK30",
+      "searchText": "PINK30 PINK30 I 33 LEAD PINK30 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 30"
     },
     {
       "id": "day4groupo34-pink31",
@@ -1364,7 +1570,9 @@
       "image": "images/day4groupo/pink31.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK31",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I 34 LEAD-PINK31 vs 3-4",
+      "searchText": "PINK31 PINK31 I 34 LEAD PINK31 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 31"
     },
     {
       "id": "day4groupo44-pink31",
@@ -1377,7 +1585,9 @@
       "image": "images/day4groupo/pink31_p40.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK31",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I 34 LEAD-PINK31",
+      "searchText": "PINK31 PINK31 I 34 LEAD PINK31 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 31"
     },
     {
       "id": "day4groupo34-pink32",
@@ -1390,7 +1600,9 @@
       "image": "images/day4groupo/pink32.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK32",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I RIGHT 34 LEAD-PINK32",
+      "searchText": "PINK32 PINK32 I RIGHT 34 LEAD PINK32 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 32"
     },
     {
       "id": "day4groupo44-pink32",
@@ -1403,7 +1615,9 @@
       "image": "images/day4groupo/pink32_p42.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK32",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I RIGHT 34 LEAD-PINK32",
+      "searchText": "PINK32 PINK32 I RIGHT 34 LEAD PINK32 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 32"
     },
     {
       "id": "day4groupo34-pink33",
@@ -1416,7 +1630,9 @@
       "image": "images/day4groupo/pink33.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK33",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I LEFT 33 LEAD-PINK33 vs 3-4",
+      "searchText": "PINK33 PINK33 I LEFT 33 LEAD PINK33 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 33"
     },
     {
       "id": "day4groupo44-pink33",
@@ -1429,7 +1645,9 @@
       "image": "images/day4groupo/pink33_p44.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK33",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I LEFT 33 LEAD-PINK33 vs 4-4",
+      "searchText": "PINK33 PINK33 I LEFT 33 LEAD PINK33 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 33"
     },
     {
       "id": "day4groupo34-pink34",
@@ -1442,7 +1660,9 @@
       "image": "images/day4groupo/pink34.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK34",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I RIGHT 33 RG COUNTER LT-PINK34 vs 3-4",
+      "searchText": "PINK34 PINK34 I RIGHT 33 RG COUNTER LT PINK34 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 34"
     },
     {
       "id": "day4groupo44-pink34",
@@ -1455,7 +1675,9 @@
       "image": "images/day4groupo/pink34_p46.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK34",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I RIGHT 33 RG COUNTER LT-PINK34 vs 4-4",
+      "searchText": "PINK34 PINK34 I RIGHT 33 RG COUNTER LT PINK34 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 34"
     },
     {
       "id": "day4groupo34-pink35",
@@ -1468,7 +1690,9 @@
       "image": "images/day4groupo/pink35.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK35",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I LEFT 34 LG COUNTER RIGHT-PINK35 vs 3-4",
+      "searchText": "PINK35 PINK35 I LEFT 34 LG COUNTER RIGHT PINK35 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 35"
     },
     {
       "id": "day4groupo44-pink35",
@@ -1481,7 +1705,9 @@
       "image": "images/day4groupo/pink35_p48.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK35",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I LEFT 34 LG COUNTER RIGHT-PINK35 vs 4-4",
+      "searchText": "PINK35 PINK35 I LEFT 34 LG COUNTER RIGHT PINK35 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 35"
     },
     {
       "id": "day4groupo34-pink36",
@@ -1494,7 +1720,9 @@
       "image": "images/day4groupo/pink36.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK36",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I RIGHT 16 SWEEP-PINK36 vs 3-4",
+      "searchText": "PINK36 PINK36 I RIGHT 16 SWEEP PINK36 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 36"
     },
     {
       "id": "day4groupo44-pink36",
@@ -1507,7 +1735,9 @@
       "image": "images/day4groupo/pink36_p50.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK36",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I RIGHT 16 SWEEP-PINK36 vs 4-4",
+      "searchText": "PINK36 PINK36 I RIGHT 16 SWEEP PINK36 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 36"
     },
     {
       "id": "day4groupo34-pink37",
@@ -1520,7 +1750,9 @@
       "image": "images/day4groupo/pink37.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK37",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I RIGHT F33 14 (X, RG) DBLE COUNTER RT-PINK37 vs 3-4",
+      "searchText": "PINK37 PINK37 I RIGHT F33 14 X RG DBLE COUNTER RT PINK37 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 PINK 37"
     },
     {
       "id": "day4groupo44-pink37",
@@ -1533,7 +1765,9 @@
       "image": "images/day4groupo/pink37_p52.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "PINK37",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I RIGHT F33 14 (X, RG) DBLE COUNTER RT-PINK37 vs 4-4",
+      "searchText": "PINK37 PINK37 I RIGHT F33 14 X RG DBLE COUNTER RT PINK37 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 PINK 37"
     },
     {
       "id": "day4groupo34-green45",
@@ -1546,7 +1780,9 @@
       "image": "images/day4groupo/green45.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN45",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "TIGER LEFT A MONKEY VEER RIGHT-GREEN45 vs 3-4",
+      "searchText": "GREEN45 GREEN45 TIGER LEFT A MONKEY VEER RIGHT GREEN45 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 45"
     },
     {
       "id": "day4groupo44-green45",
@@ -1559,7 +1795,9 @@
       "image": "images/day4groupo/green45_p54.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN45",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "TIGER LEFT A MONKEY VEER RIGHT-GREEN45",
+      "searchText": "GREEN45 GREEN45 TIGER LEFT A MONKEY VEER RIGHT GREEN45 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 45"
     },
     {
       "id": "day4groupo34-green46",
@@ -1572,7 +1810,9 @@
       "image": "images/day4groupo/green46.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN46",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "TIGER LEFT A MONKEY 16 SWEEP-GREEN46",
+      "searchText": "GREEN46 GREEN46 TIGER LEFT A MONKEY 16 SWEEP GREEN46 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 46"
     },
     {
       "id": "day4groupo44-green46",
@@ -1585,7 +1825,9 @@
       "image": "images/day4groupo/green46_p56.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN46",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "TIGER LEFT A MONKEY 16 SWEEP-GREEN46",
+      "searchText": "GREEN46 GREEN46 TIGER LEFT A MONKEY 16 SWEEP GREEN46 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 46"
     },
     {
       "id": "day4groupo34-green50",
@@ -1598,7 +1840,9 @@
       "image": "images/day4groupo/green50.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN50",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "I LEFT 15 SWEEP-GREEN50 vs 3-4",
+      "searchText": "GREEN50 GREEN50 I LEFT 15 SWEEP GREEN50 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 50"
     },
     {
       "id": "day4groupo44-green50",
@@ -1611,7 +1855,9 @@
       "image": "images/day4groupo/green50_p58.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN50",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "I LEFT 15 SWEEP-GREEN50",
+      "searchText": "GREEN50 GREEN50 I LEFT 15 SWEEP GREEN50 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 50"
     },
     {
       "id": "day4groupo34-green51",
@@ -1624,7 +1870,9 @@
       "image": "images/day4groupo/green51.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN51",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "PRO 13 LEAD-GREEN51 vs 3-4",
+      "searchText": "GREEN51 GREEN51 PRO 13 LEAD GREEN51 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 51"
     },
     {
       "id": "day4groupo44-green51",
@@ -1637,7 +1885,9 @@
       "image": "images/day4groupo/green51_p60.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN51",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "PRO 13 LEAD-GREEN51 vs 4-4",
+      "searchText": "GREEN51 GREEN51 PRO 13 LEAD GREEN51 VS 4 4 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 51"
     },
     {
       "id": "day4groupo34-green52",
@@ -1650,7 +1900,9 @@
       "image": "images/day4groupo/green52.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN52",
-      "vs": "3-4"
+      "vs": "3-4",
+      "title": "PRO 14 LEAD-GREEN52 vs 3-4",
+      "searchText": "GREEN52 GREEN52 PRO 14 LEAD GREEN52 VS 3 4 DAY4 GROUP TEAM O VS 3 4 3 4 GREEN 52"
     },
     {
       "id": "day4groupo44-green52",
@@ -1663,7 +1915,9 @@
       "image": "images/day4groupo/green52_p62.png",
       "pdf": "pdfs/day4groupo.pdf",
       "search": "GREEN52",
-      "vs": "4-4"
+      "vs": "4-4",
+      "title": "PRO 14 LEAD-GREEN52",
+      "searchText": "GREEN52 GREEN52 PRO 14 LEAD GREEN52 DAY4 GROUP TEAM O VS 4 4 4 4 GREEN 52"
     }
   ]
 }

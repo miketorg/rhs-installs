@@ -80,7 +80,9 @@ const els = {
 function normalizeQuery(q) {
   return String(q || "")
     .toUpperCase()
-    .replace(/[^A-Z0-9]/g, "");
+    .replace(/[^A-Z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function colorHex(color) {
@@ -89,6 +91,23 @@ function colorHex(color) {
 
 function setOfflineBadge() {
   els.offlineBadge.hidden = navigator.onLine;
+}
+
+function searchPlays(query) {
+  const q = normalizeQuery(query);
+  if (!q) return [];
+  const tokens = q.split(" ").filter(Boolean);
+  const compact = q.replace(/\s+/g, "");
+  return state.data.plays.filter((p) => {
+    const code = String(p.search || p.play || "")
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, "");
+    const text = String(p.searchText || `${p.play || ""} ${p.title || ""} ${p.day || ""}`)
+      .toUpperCase();
+    const textCompact = text.replace(/[^A-Z0-9]/g, "");
+    if (code.includes(compact) || textCompact.includes(compact)) return true;
+    return tokens.every((t) => code.includes(t) || text.includes(t));
+  });
 }
 
 function formatClock(hhmm) {
@@ -159,15 +178,6 @@ async function loadData() {
 
 function playsForDay(slug) {
   return state.data.plays.filter((p) => p.daySlug === slug);
-}
-
-function searchPlays(query) {
-  const q = normalizeQuery(query);
-  if (!q) return [];
-  return state.data.plays.filter((p) => {
-    const hay = p.search;
-    return hay.includes(q) || p.color.includes(q) || p.number.includes(q) || `${p.color}${p.number}`.includes(q);
-  });
 }
 
 async function unlockAudio() {
@@ -577,6 +587,7 @@ function renderPlayGrid(plays, label) {
           <div class="play-name">
             <span class="color-dot" style="background:${colorHex(p.color)}"></span>${p.play}
           </div>
+          ${p.title ? `<div class="play-title">${p.title}</div>` : ""}
           <div class="play-day">${p.day}</div>
         </div>
       </button>`

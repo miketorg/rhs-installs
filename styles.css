@@ -215,6 +215,16 @@ h1 {
   letter-spacing: 0.02em;
 }
 
+.play-title {
+  color: #d7e6db;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .play-day {
   color: var(--muted);
   font-size: 0.8rem;
