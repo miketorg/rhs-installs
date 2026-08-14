@@ -226,7 +226,24 @@ function promptGithubToken() {
   return token.trim() || null;
 }
 
-function loadGithubTokenFromFile() {
+function downloadTokenTemplate() {
+  const body = [
+    "# Paste your GitHub token on the next line (delete this comment line).",
+    "# Create a token at: https://github.com/settings/tokens",
+    "# Needs access to miketorg/rhs-installs with Contents Read/Write.",
+    "",
+    "PASTE_TOKEN_HERE",
+    "",
+  ].join("\n");
+  const blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "github-token.txt";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1500);
+}
   return new Promise((resolve) => {
     const input = document.createElement("input");
     input.type = "file";
@@ -399,9 +416,10 @@ function cloudToolbarHtml() {
       <button type="button" id="syncCloudBtn" class="timer-btn">Sync to cloud</button>
       <button type="button" id="pullCloudBtn" class="timer-btn">Pull from cloud</button>
       <button type="button" id="loadTokenFileBtn" class="timer-btn">Load token from file</button>
+      <button type="button" id="downloadTokenTplBtn" class="timer-btn">Download token file</button>
       <button type="button" id="tokenBtn" class="timer-btn">${hasToken ? "Update token" : "Paste token"}</button>
     </div>
-    <p class="call-cloud-note">Save your token in Files as a .txt (one line). Load once — it stays on this phone. Cloud file: call-logs/store.json</p>
+    <p class="call-cloud-note">Download the blank token file, replace PASTE_TOKEN_HERE with your token, save it in Files, then Load token from file once. Real tokens are never bundled in the app.</p>
   `;
 }
 
@@ -417,6 +435,9 @@ function wireCloudToolbar(after) {
   document.getElementById("loadTokenFileBtn")?.addEventListener("click", async () => {
     await loadGithubTokenFromFile();
     after?.();
+  });
+  document.getElementById("downloadTokenTplBtn")?.addEventListener("click", () => {
+    downloadTokenTemplate();
   });
   document.getElementById("tokenBtn")?.addEventListener("click", () => {
     promptGithubToken();
