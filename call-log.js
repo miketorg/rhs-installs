@@ -218,12 +218,47 @@ function setGithubToken(token) {
 function promptGithubToken() {
   const existing = getGithubToken();
   const token = window.prompt(
-    "Paste a GitHub token with access to miketorg/rhs-installs (Contents: Read/Write).\n\nCreate one at: github.com/settings/tokens\n\nToken stays on this phone only.",
+    "Paste a GitHub token with access to miketorg/rhs-installs (Contents: Read/Write).\n\nOr cancel and use Load token from file instead.\n\nToken stays on this phone only.",
     existing || ""
   );
   if (token === null) return null;
   setGithubToken(token.trim());
   return token.trim() || null;
+}
+
+function loadGithubTokenFromFile() {
+  return new Promise((resolve) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".txt,text/plain";
+    input.onchange = async () => {
+      const file = input.files && input.files[0];
+      if (!file) {
+        resolve(null);
+        return;
+      }
+      try {
+        const text = (await file.text()).trim();
+        // Allow files like: token=ghp_xxx  or just the raw token on first line
+        let token = text.split(/\r?\n/).map((l) => l.trim()).find(Boolean) || "";
+        const m = token.match(/(?:token|github_token|gh_token)\s*[:=]\s*(\S+)/i);
+        if (m) token = m[1];
+        token = token.replace(/^["']|["']$/g, "").trim();
+        if (!token) {
+          alert("That file did not contain a token.");
+          resolve(null);
+          return;
+        }
+        setGithubToken(token);
+        alert("Cloud token saved on this phone.");
+        resolve(token);
+      } catch (err) {
+        alert("Could not read that file.");
+        resolve(null);
+      }
+    };
+    input.click();
+  });
 }
 
 function storeForCloud(store) {
@@ -271,9 +306,19 @@ function toBase64Utf8(text) {
   return btoa(unescape(encodeURIComponent(text)));
 }
 
-async function syncCallsToCloud() {
+async function ensureGithubToken() {
   let token = getGithubToken();
-  if (!token) token = promptGithubToken();
+  if (token) return token;
+  const choice = window.confirm(
+    "No cloud token saved yet.\n\nOK = Load token from a file\nCancel = Paste token"
+  );
+  if (choice) token = await loadGithubTokenFromFile();
+  else token = promptGithubToken();
+  return token || null;
+}
+
+async function syncCallsToCloud() {
+  const token = await ensureGithubToken();
   if (!token) return;
 
   callLog.syncing = true;
@@ -322,8 +367,7 @@ async function syncCallsToCloud() {
 }
 
 async function pullCallsFromCloud() {
-  let token = getGithubToken();
-  if (!token) token = promptGithubToken();
+  const token = await ensureGithubToken();
   if (!token) return;
 
   callLog.syncing = true;
@@ -354,9 +398,10 @@ function cloudToolbarHtml() {
     <div class="call-toolbar cloud-toolbar">
       <button type="button" id="syncCloudBtn" class="timer-btn">Sync to cloud</button>
       <button type="button" id="pullCloudBtn" class="timer-btn">Pull from cloud</button>
-      <button type="button" id="tokenBtn" class="timer-btn">${hasToken ? "Update token" : "Set cloud token"}</button>
+      <button type="button" id="loadTokenFileBtn" class="timer-btn">Load token from file</button>
+      <button type="button" id="tokenBtn" class="timer-btn">${hasToken ? "Update token" : "Paste token"}</button>
     </div>
-    <p class="call-cloud-note">Cloud = GitHub file call-logs/store.json (play names + times). Audio stays on this phone.</p>
+    <p class="call-cloud-note">Save your token in Files as a .txt (one line). Load once — it stays on this phone. Cloud file: call-logs/store.json</p>
   `;
 }
 
@@ -367,6 +412,10 @@ function wireCloudToolbar(after) {
   });
   document.getElementById("pullCloudBtn")?.addEventListener("click", async () => {
     await pullCallsFromCloud();
+    after?.();
+  });
+  document.getElementById("loadTokenFileBtn")?.addEventListener("click", async () => {
+    await loadGithubTokenFromFile();
     after?.();
   });
   document.getElementById("tokenBtn")?.addEventListener("click", () => {
