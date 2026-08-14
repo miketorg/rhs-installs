@@ -806,6 +806,12 @@ body.has-timer {
   border-color: rgba(214, 40, 40, 0.45);
 }
 
+.timer-btn.primary {
+  background: var(--accent);
+  color: #0b1f14;
+  border-color: transparent;
+}
+
 .timer-progress {
   grid-column: 1 / -1;
   height: 6px;
