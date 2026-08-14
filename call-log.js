@@ -1,6 +1,9 @@
 /* Call Log: per-game spoken/typed play lists + CSV export */
 
 const CALL_LOG_KEY = "rhs-call-log-v1";
+const CALL_LOG_TOKEN_KEY = "rhs-gh-token";
+const CALL_LOG_REPO = "miketorg/rhs-installs";
+const CALL_LOG_PATH = "call-logs/store.json";
 
 const callLog = {
   games: null,
@@ -10,6 +13,7 @@ const callLog = {
   mediaRecorder: null,
   mediaChunks: [],
   mediaStream: null,
+  syncing: false,
 };
 
 function loadCallStore() {
@@ -202,6 +206,175 @@ function deleteCall(gameId, callId) {
   );
 }
 
+function getGithubToken() {
+  return localStorage.getItem(CALL_LOG_TOKEN_KEY) || "";
+}
+
+function setGithubToken(token) {
+  if (token) localStorage.setItem(CALL_LOG_TOKEN_KEY, token.trim());
+  else localStorage.removeItem(CALL_LOG_TOKEN_KEY);
+}
+
+function promptGithubToken() {
+  const existing = getGithubToken();
+  const token = window.prompt(
+    "Paste a GitHub token with access to miketorg/rhs-installs (Contents: Read/Write).\n\nCreate one at: github.com/settings/tokens\n\nToken stays on this phone only.",
+    existing || ""
+  );
+  if (token === null) return null;
+  setGithubToken(token.trim());
+  return token.trim() || null;
+}
+
+function storeForCloud(store) {
+  // Keep lists small in git — play names/times only (no audio blobs)
+  const out = {};
+  for (const [gameId, calls] of Object.entries(store || {})) {
+    out[gameId] = (calls || []).map((c) => ({
+      id: c.id,
+      play: c.play,
+      raw: c.raw || "",
+      at: c.at,
+    }));
+  }
+  return {
+    updatedAt: new Date().toISOString(),
+    games: out,
+  };
+}
+
+function mergeCallLists(localCalls, cloudCalls) {
+  const map = new Map();
+  [...(cloudCalls || []), ...(localCalls || [])].forEach((c) => {
+    if (!c?.id) return;
+    const prev = map.get(c.id);
+    if (!prev || String(c.at) > String(prev.at)) map.set(c.id, { ...prev, ...c });
+  });
+  return [...map.values()].sort((a, b) => String(b.at).localeCompare(String(a.at)));
+}
+
+async function githubGetStore(token) {
+  const res = await fetch(`https://api.github.com/repos/${CALL_LOG_REPO}/contents/${CALL_LOG_PATH}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (res.status === 404) return { sha: null, data: { games: {} } };
+  if (!res.ok) throw new Error(`GitHub read failed (${res.status})`);
+  const body = await res.json();
+  const json = JSON.parse(atob(body.content.replace(/\n/g, "")));
+  return { sha: body.sha, data: json };
+}
+
+function toBase64Utf8(text) {
+  return btoa(unescape(encodeURIComponent(text)));
+}
+
+async function syncCallsToCloud() {
+  let token = getGithubToken();
+  if (!token) token = promptGithubToken();
+  if (!token) return;
+
+  callLog.syncing = true;
+  try {
+    const local = loadCallStore();
+    const { sha, data: cloud } = await githubGetStore(token);
+    const merged = {};
+    const ids = new Set([...Object.keys(local), ...Object.keys(cloud.games || {})]);
+    ids.forEach((id) => {
+      merged[id] = mergeCallLists(local[id] || [], (cloud.games || {})[id] || []);
+    });
+    // Keep any local audio when saving back to phone
+    const withAudio = {};
+    ids.forEach((id) => {
+      const audioMap = new Map((local[id] || []).filter((c) => c.audio).map((c) => [c.id, c.audio]));
+      withAudio[id] = merged[id].map((c) => (audioMap.has(c.id) ? { ...c, audio: audioMap.get(c.id) } : c));
+    });
+    saveCallStore(withAudio);
+
+    const payload = storeForCloud(withAudio);
+    const content = toBase64Utf8(JSON.stringify(payload, null, 2));
+    const put = await fetch(`https://api.github.com/repos/${CALL_LOG_REPO}/contents/${CALL_LOG_PATH}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `Sync call log ${new Date().toISOString()}`,
+        content,
+        sha: sha || undefined,
+      }),
+    });
+    if (!put.ok) {
+      const err = await put.text();
+      throw new Error(`GitHub write failed (${put.status}): ${err.slice(0, 180)}`);
+    }
+    alert("Call log synced to the cloud.");
+  } catch (err) {
+    console.error(err);
+    alert(`Cloud sync failed.\n\n${err.message || err}`);
+  } finally {
+    callLog.syncing = false;
+  }
+}
+
+async function pullCallsFromCloud() {
+  let token = getGithubToken();
+  if (!token) token = promptGithubToken();
+  if (!token) return;
+
+  callLog.syncing = true;
+  try {
+    const local = loadCallStore();
+    const { data: cloud } = await githubGetStore(token);
+    const merged = {};
+    const ids = new Set([...Object.keys(local), ...Object.keys(cloud.games || {})]);
+    ids.forEach((id) => {
+      const audioMap = new Map((local[id] || []).filter((c) => c.audio).map((c) => [c.id, c.audio]));
+      merged[id] = mergeCallLists(local[id] || [], (cloud.games || {})[id] || []).map((c) =>
+        audioMap.has(c.id) ? { ...c, audio: audioMap.get(c.id) } : c
+      );
+    });
+    saveCallStore(merged);
+    alert("Pulled latest call log from the cloud.");
+  } catch (err) {
+    console.error(err);
+    alert(`Cloud pull failed.\n\n${err.message || err}`);
+  } finally {
+    callLog.syncing = false;
+  }
+}
+
+function cloudToolbarHtml() {
+  const hasToken = !!getGithubToken();
+  return `
+    <div class="call-toolbar cloud-toolbar">
+      <button type="button" id="syncCloudBtn" class="timer-btn">Sync to cloud</button>
+      <button type="button" id="pullCloudBtn" class="timer-btn">Pull from cloud</button>
+      <button type="button" id="tokenBtn" class="timer-btn">${hasToken ? "Update token" : "Set cloud token"}</button>
+    </div>
+    <p class="call-cloud-note">Cloud = GitHub file call-logs/store.json (play names + times). Audio stays on this phone.</p>
+  `;
+}
+
+function wireCloudToolbar(after) {
+  document.getElementById("syncCloudBtn")?.addEventListener("click", async () => {
+    await syncCallsToCloud();
+    after?.();
+  });
+  document.getElementById("pullCloudBtn")?.addEventListener("click", async () => {
+    await pullCallsFromCloud();
+    after?.();
+  });
+  document.getElementById("tokenBtn")?.addEventListener("click", () => {
+    promptGithubToken();
+    after?.();
+  });
+}
+
 function getSpeechRecognition() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   return SR ? new SR() : null;
@@ -308,8 +481,10 @@ function renderCallLogHome() {
 
   els.app.innerHTML = `
     <p class="section-label">Pick a game or practice — each has its own play list</p>
+    ${cloudToolbarHtml()}
     <div class="day-grid">${cards}</div>
   `;
+  wireCloudToolbar(() => renderCallLogHome());
   els.app.querySelectorAll("[data-game]").forEach((btn) => {
     btn.addEventListener("click", () => renderCallGame(btn.dataset.game));
   });
@@ -358,6 +533,7 @@ function renderCallGame(gameId) {
         <button type="button" id="exportCsvBtn" class="timer-btn">Export CSV</button>
         <button type="button" id="clearCallsBtn" class="timer-btn danger">Clear list</button>
       </div>
+      ${cloudToolbarHtml()}
     </div>
     <p class="section-label">${calls.length} recorded</p>
     <div class="call-list">${list}</div>
@@ -383,6 +559,7 @@ function renderCallGame(gameId) {
       renderCallGame(gameId);
     }
   });
+  wireCloudToolbar(() => renderCallGame(gameId));
   els.app.querySelectorAll("[data-del]").forEach((btn) => {
     btn.addEventListener("click", () => {
       deleteCall(gameId, btn.dataset.del);
