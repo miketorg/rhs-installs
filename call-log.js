@@ -614,10 +614,10 @@ function renderCallLogHome() {
 
   els.app.innerHTML = `
     <p class="section-label">Pick a game or practice — each has its own play list</p>
-    ${cloudToolbarHtml()}
+    ${cloudToolbarHtml("home")}
     <div class="day-grid">${cards}</div>
   `;
-  wireCloudToolbar(() => renderCallLogHome());
+  wireCloudToolbar(() => renderCallLogHome(), "home");
   els.app.querySelectorAll("[data-game]").forEach((btn) => {
     btn.addEventListener("click", () => renderCallGame(btn.dataset.game));
   });
@@ -666,7 +666,7 @@ function renderCallGame(gameId) {
         <button type="button" id="exportCsvBtn" class="timer-btn">Export CSV</button>
         <button type="button" id="clearCallsBtn" class="timer-btn danger">Clear list</button>
       </div>
-      ${cloudToolbarHtml()}
+      ${cloudToolbarHtml("game")}
     </div>
     <p class="section-label">${calls.length} recorded</p>
     <div class="call-list">${list}</div>
@@ -692,7 +692,7 @@ function renderCallGame(gameId) {
       renderCallGame(gameId);
     }
   });
-  wireCloudToolbar(() => renderCallGame(gameId));
+  wireCloudToolbar(() => renderCallGame(gameId), "game");
   els.app.querySelectorAll("[data-del]").forEach((btn) => {
     btn.addEventListener("click", () => {
       deleteCall(gameId, btn.dataset.del);
