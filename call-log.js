@@ -467,22 +467,28 @@ async function pullCallsFromCloud() {
   }
 }
 
-function cloudToolbarHtml() {
+function cloudToolbarHtml(mode = "home") {
   const hasToken = !!getGithubToken();
+  if (mode === "game") {
+    return `
+      <div class="call-toolbar cloud-toolbar">
+        <button type="button" id="syncCloudBtn" class="timer-btn">Sync to cloud</button>
+        <button type="button" id="pullCloudBtn" class="timer-btn">Pull from cloud</button>
+      </div>
+    `;
+  }
   return `
     <div class="call-toolbar cloud-toolbar">
-      <button type="button" id="syncCloudBtn" class="timer-btn">Sync to cloud</button>
-      <button type="button" id="pullCloudBtn" class="timer-btn">Pull from cloud</button>
       <button type="button" id="shareTokenBtn" class="timer-btn">Share access link</button>
       <button type="button" id="loadTokenFileBtn" class="timer-btn">Load token from file</button>
       <button type="button" id="downloadTokenTplBtn" class="timer-btn">Download token file</button>
       <button type="button" id="tokenBtn" class="timer-btn">${hasToken ? "Update token" : "Paste token"}</button>
     </div>
-    <p class="call-cloud-note">Easiest for others: tap Share access link → text/AirDrop it → they open once and cloud sync is set. Anyone with the link can sync call logs to your GitHub repo.</p>
+    <p class="call-cloud-note">Set up cloud access here. Inside each game, use Sync to cloud / Pull from cloud.</p>
   `;
 }
 
-function wireCloudToolbar(after) {
+function wireCloudToolbar(after, mode = "home") {
   document.getElementById("syncCloudBtn")?.addEventListener("click", async () => {
     await syncCallsToCloud();
     after?.();
@@ -491,6 +497,7 @@ function wireCloudToolbar(after) {
     await pullCallsFromCloud();
     after?.();
   });
+  if (mode === "game") return;
   document.getElementById("shareTokenBtn")?.addEventListener("click", async () => {
     await shareInviteLink();
     after?.();
