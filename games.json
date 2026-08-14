@@ -1,0 +1,19 @@
+{
+  "title": "Season Call Log",
+  "games": [
+    { "id": "2026-08-14-practice5", "date": "2026-08-14", "name": "Practice 5", "label": "Fri 8/14 · Practice 5" },
+    { "id": "2026-08-15-bw", "date": "2026-08-15", "name": "Black & White", "label": "Sat 8/15 · Black & White" },
+    { "id": "2026-08-22-jamboree1", "date": "2026-08-22", "name": "Jamboree 1", "label": "Sat 8/22 · Jamboree 1" },
+    { "id": "2026-08-22-jamboree2", "date": "2026-08-22", "name": "Jamboree 2", "label": "Sat 8/22 · Jamboree 2" },
+    { "id": "2026-08-22-jamboree3", "date": "2026-08-22", "name": "Jamboree 3", "label": "Sat 8/22 · Jamboree 3" },
+    { "id": "2026-08-28-watersprings", "date": "2026-08-28", "name": "Watersprings", "label": "Fri 8/28 · Watersprings" },
+    { "id": "2026-09-04-challis", "date": "2026-09-04", "name": "Challis", "label": "Fri 9/4 · Challis" },
+    { "id": "2026-09-11-mackay", "date": "2026-09-11", "name": "Mackay", "label": "Fri 9/11 · Mackay" },
+    { "id": "2026-09-18-hansen", "date": "2026-09-18", "name": "Hansen", "label": "Fri 9/18 · Hansen" },
+    { "id": "2026-09-25-carey", "date": "2026-09-25", "name": "Carey", "label": "Fri 9/25 · Carey" },
+    { "id": "2026-10-02-dietrich", "date": "2026-10-02", "name": "Dietrich", "label": "Fri 10/2 · Dietrich" },
+    { "id": "2026-10-09-lighthouse", "date": "2026-10-09", "name": "Lighthouse Christian", "label": "Fri 10/9 · Lighthouse Christian" },
+    { "id": "2026-10-16-camas", "date": "2026-10-16", "name": "Camas County", "label": "Fri 10/16 · Camas County" },
+    { "id": "2026-10-23-castleford", "date": "2026-10-23", "name": "Castleford", "label": "Fri 10/23 · Castleford" }
+  ]
+}

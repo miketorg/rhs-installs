@@ -1,11 +1,13 @@
-const CACHE = "rhs-installs-v19";
+const CACHE = "rhs-installs-v20";
 const PRECACHE = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
+  "./call-log.js",
   "./plays.json",
   "./schedule.json",
+  "./games.json",
   "./alarm.wav",
   "./pdfs/week1-practice.pdf",
   "./pdfs/motions.pdf",

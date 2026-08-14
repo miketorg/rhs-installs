@@ -26,7 +26,7 @@ const COLOR_HEX = {
 const state = {
   data: null,
   schedule: null,
-  view: "home", // home | day | search | schedule | schedule-day
+  view: "home", // home | day | search | schedule | schedule-day | calls | call-game
   daySlug: null,
   scheduleDayId: null,
   query: "",
@@ -166,14 +166,17 @@ function remainingMsInSlot(slot) {
 }
 
 async function loadData() {
-  const [playsRes, scheduleRes] = await Promise.all([
+  const [playsRes, scheduleRes, gamesRes] = await Promise.all([
     fetch("plays.json", { cache: "no-cache" }),
     fetch("schedule.json", { cache: "no-cache" }),
+    fetch("games.json", { cache: "no-cache" }),
   ]);
   if (!playsRes.ok) throw new Error("Could not load plays.json");
   if (!scheduleRes.ok) throw new Error("Could not load schedule.json");
+  if (!gamesRes.ok) throw new Error("Could not load games.json");
   state.data = await playsRes.json();
   state.schedule = await scheduleRes.json();
+  callLog.games = await gamesRes.json();
 }
 
 function playsForDay(slug) {
@@ -533,6 +536,7 @@ function renderHome() {
   const sched = state.schedule;
   const today = todayDateStr();
   const todayDay = sched.days.find((d) => d.date === today);
+  const todayCall = (callLog.games?.games || []).find((g) => g.date === today);
 
   const motionsTile = motions
     ? `
@@ -557,6 +561,14 @@ function renderHome() {
         </div>
         <p class="count">Open schedule + timers</p>
       </button>
+      <button class="day-tile calls-tile" id="openCalls">
+        <div>
+          <h2>Call Log</h2>
+          <p class="count">${(callLog.games?.games || []).length} games</p>
+          <p class="tile-note">Speak or type plays · CSV export</p>
+        </div>
+        <p class="count">${todayCall ? `Today: ${todayCall.name}` : "Open game lists"}</p>
+      </button>
       ${motionsTile}
     </div>
     <p class="section-label">Install packets</p>
@@ -566,6 +578,11 @@ function renderHome() {
   document.getElementById("openSchedule").addEventListener("click", () => {
     if (todayDay) renderScheduleDay(todayDay.id);
     else renderScheduleHome();
+  });
+  document.getElementById("openCalls").addEventListener("click", () => {
+    const id = todayGameId();
+    if (id) renderCallGame(id);
+    else renderCallLogHome();
   });
   els.app.querySelectorAll("[data-day]").forEach((btn) => {
     btn.addEventListener("click", () => renderDay(btn.dataset.day));
@@ -911,12 +928,17 @@ function goBack() {
   els.search.value = "";
   els.clearSearch.classList.add("hidden");
   state.query = "";
+  stopListening(true);
   if (state.view === "search" && state.scheduleDayId) {
     renderScheduleDay(state.scheduleDayId);
     return;
   }
   if (state.view === "search" && state.daySlug) {
     renderDay(state.daySlug);
+    return;
+  }
+  if (state.view === "call-game") {
+    renderCallLogHome();
     return;
   }
   if (state.view === "schedule-day") {
