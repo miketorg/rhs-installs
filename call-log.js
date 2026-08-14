@@ -218,7 +218,7 @@ function setGithubToken(token) {
 function promptGithubToken() {
   const existing = getGithubToken();
   const token = window.prompt(
-    "Paste a GitHub token with access to miketorg/rhs-installs (Contents: Read/Write).\n\nOr cancel and use Load token from file instead.\n\nToken stays on this phone only.",
+    "Paste a Classic GitHub token (starts with ghp_) with the repo scope for miketorg/rhs-installs.\n\nCreate one: github.com/settings/tokens → Generate new token (classic) → check repo.\n\nToken stays on this phone only.",
     existing || ""
   );
   if (token === null) return null;
@@ -284,9 +284,9 @@ async function shareInviteLink() {
 
 function downloadTokenTemplate() {
   const body = [
-    "# Paste your GitHub token on the next line (delete this comment line).",
-    "# Create a token at: https://github.com/settings/tokens",
-    "# Needs access to miketorg/rhs-installs with Contents Read/Write.",
+    "# Paste your Classic GitHub token (ghp_...) on the next line (delete this comment line).",
+    "# Create: https://github.com/settings/tokens/new?scopes=repo&description=RHS-call-log",
+    "# Must be Classic with repo checked (fine-grained often gets 403 on sync).",
     "",
     "PASTE_TOKEN_HERE",
     "",
@@ -430,7 +430,11 @@ async function syncCallsToCloud() {
     });
     if (!put.ok) {
       const err = await put.text();
-      throw new Error(`GitHub write failed (${put.status}): ${err.slice(0, 180)}`);
+      const tip =
+        put.status === 403
+          ? "\n\nFix: create a Classic token (not fine-grained) with the repo scope, then Update token on Call Log home.\nhttps://github.com/settings/tokens/new?scopes=repo&description=RHS-call-log"
+          : "";
+      throw new Error(`GitHub write failed (${put.status}): ${err.slice(0, 160)}${tip}`);
     }
     alert("Call log synced to the cloud.");
   } catch (err) {
